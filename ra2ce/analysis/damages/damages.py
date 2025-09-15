@@ -54,7 +54,9 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         self.output_path = analysis_input.output_path
         self.reference_base_graph_hazard = base_graph_hazard
 
-        self._validate_for_damages_with_asset()
+        if self.analysis.analysis != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+            self._validate_for_damages_with_asset()
+            self._load_asset_damage_curves()
 
         if self.analysis.damage_curve == DamageCurveEnum.MAN:
             self.manual_damage_functions = ManualDamageFunctionsReader().read(
@@ -71,9 +73,6 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
           - Keys of asset_damage_curve_paths ∈ {'bridge','viaduct','tunnel'} (case-insensitive)
         """
         ALLOWED_ASSET_TYPES = {"bridge", "viaduct", "tunnel"}
-        analysis_mode = getattr(self.analysis, "analysis", None)
-        if analysis_mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
-            return  # Not applicable in other modes
 
         # 1) damage_curve must be MAN
         damage_curve = getattr(self.analysis, "damage_curve", None)
@@ -111,49 +110,48 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
                 f"(found: {details})."
             )
 
-    def _validate_for_damages_with_asset(self) -> None:
+    def _load_asset_damage_curves(self) -> None:
         """
-        Enforce that when analysis == DAMAGES_WITH_ASSET:
-        - damage_curve == DamageCurveEnum.MAN
-        - damage_curve_paths and assets_for_damage_analysis are both provided and non-empty
-        - they have the same length
+        Load damage curves for each asset type specified in
+        self.analysis.asset_damage_curve_paths using ManualDamageFunctionsReader.
+
+        Behavior:
+          - Normalizes keys to lowercase (e.g., 'Bridge' -> 'bridge')
+          - Resolves relative paths against self.input_path
+          - Ensures each path exists and is a directory
+          - Uses ManualDamageFunctionsReader().read(<folder>) to load curves
+          - Populates:
+              * self.asset_damage_curve_paths : dict[str, Path]
+              * self.asset_damage_curves      : dict[str, ManualDamageFunctions]
         """
-        analysis_mode = getattr(self.analysis, "analysis", None)
-        if analysis_mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
-            return  # Not applicable
+        from pathlib import Path  # local import to keep this snippet standalone
 
-        damage_curve = getattr(self.analysis, "damage_curve", None)
-        if damage_curve != DamageCurveEnum.MAN:
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve' must be DamageCurveEnum.MAN "
-                f"(got {damage_curve.name})."
-            )
+        asset_damage_curve_paths = getattr(self.analysis, "asset_damage_curve_paths", None)
 
-        damage_curve_paths = getattr(self.analysis, "damage_curve_paths", None)
-        assets_for_damage_analysis = getattr(self.analysis, "assets_for_damage_analysis", None)
+        # Normalize keys to lowercase and values to absolute Paths
+        normalized_paths: dict[str, Path] = {}
+        for k, v in asset_damage_curve_paths.items():
+            key = k.lower()
+            path = v
 
-        # Must be provided and non-empty
-        if not damage_curve_paths:
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' must be provided and non-empty."
-            )
-        if not assets_for_damage_analysis:
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'assets_for_damage_analysis' must be provided and non-empty."
-            )
+            # Resolve relative to the analysis input folder if not absolute
+            if not path.is_absolute():
+                path = (self.input_path / path).resolve()
 
-        # Must be sequences with same length
-        if not isinstance(damage_curve_paths, list) or not isinstance(assets_for_damage_analysis, list):
-            raise TypeError(
-                "Both 'damage_curve_paths' and 'assets_for_damage_analysis' must be sequences (e.g., list/tuple)."
-            )
+            if not path.exists():
+                raise FileNotFoundError(f"Damage curve folder not found for '{key}': {path}")
+            if not path.is_dir():
+                raise ValueError(f"Damage curve path for '{key}' is not a directory: {path}")
 
-        if len(damage_curve_paths) != len(assets_for_damage_analysis):
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' and "
-                f"'assets_for_damage_analysis' must have the same length "
-                f"(len(paths)={len(damage_curve_paths)} != len(assets)={len(assets_for_damage_analysis)})."
-            )
+            normalized_paths[key] = path
+
+        # Read each asset-specific damage curve folder
+        reader = ManualDamageFunctionsReader()
+        loaded_curves: dict[str, ManualDamageFunctions] = {}
+        for key, folder in normalized_paths.items():
+            loaded_curves[key] = reader.read(folder)
+
+        self.asset_damage_curves = loaded_curves
 
     def execute(self) -> AnalysisResultWrapper:
         def _rename_road_gdf_to_conventions(road_gdf_columns: list[str]) -> list[str]:
@@ -192,7 +190,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         # Choose between event or return period based analysis
         if self.analysis.event_type == EventTypeEnum.EVENT:
             event_gdf = DamageNetworkEvents(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage
+                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.asset_damage_curves
             )
             event_gdf.main(
                 damage_function=damage_function,
@@ -203,7 +201,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         elif self.analysis.event_type == EventTypeEnum.RETURN_PERIOD:
             return_period_gdf = DamageNetworkReturnPeriods(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage
+                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.asset_damage_curves
             )
             return_period_gdf.main(
                 damage_function=damage_function,

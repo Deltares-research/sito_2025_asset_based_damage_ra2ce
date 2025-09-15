@@ -21,6 +21,7 @@
 
 import logging
 from pathlib import Path
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -33,6 +34,7 @@ from ra2ce.analysis.analysis_config_data.enums.risk_calculation_mode_enum import
 from ra2ce.analysis.damages.damage_calculation.damage_network_base import (
     DamageNetworkBase,
 )
+from ra2ce.analysis.damages.damage_functions.manual_damage_functions import ManualDamageFunctions
 from ra2ce.analysis.damages.shape_to_integrate_object.to_integrate_shaper_factory import (
     ToIntegrateShaperFactory,
 )
@@ -54,9 +56,10 @@ class DamageNetworkReturnPeriods(DamageNetworkBase):
         road_gdf: GeoDataFrame,
         val_cols: list[str],
         representative_damage_percentage: float,
+        asset_damage_curves: Optional[dict[str, ManualDamageFunctions]]
     ):
         # Construct using the parent class __init__
-        super().__init__(road_gdf, val_cols, representative_damage_percentage)
+        super().__init__(road_gdf, val_cols, representative_damage_percentage, asset_damage_curves)
 
         self.return_periods = set(
             [x.split("_")[1] for x in val_cols]
@@ -75,7 +78,7 @@ class DamageNetworkReturnPeriods(DamageNetworkBase):
         ]  # Find everything starting with 'F'
         return cls(road_gdf, val_cols, representative_damage_percentage)
 
-    ### Controlers for return period based damage and risk calculations
+    ### Controllers for return period based damage and risk calculations
     def main(self, damage_function: DamageCurveEnum, manual_damage_functions):
         """
         Control the damage calculation per return period
