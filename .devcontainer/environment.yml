@@ -1,4 +1,4 @@
-name: ra2ce_env
+name: asset_damage_ra2ce
 channels:
   - conda-forge
   - nodefaults
