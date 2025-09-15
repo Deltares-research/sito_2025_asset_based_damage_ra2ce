@@ -62,20 +62,47 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
             )
 
     def _validate_for_damages_with_asset(self) -> None:
-        if self.analysis.analysis != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
-            return
+        """
+        Enforce that when analysis == DAMAGES_WITH_ASSET:
+        - damage_curve == DamageCurveEnum.MAN
+        - damage_curve_paths and assets_for_damage_analysis are both provided and non-empty
+        - they have the same length
+        """
+        mode = getattr(self.analysis, "analysis", None)
+        if mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+            return  # Not applicable
+
+        damage_curve = getattr(self.analysis, "damage_curve", None)
+        if damage_curve != DamageCurveEnum.MAN:
+            raise ValueError(
+                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve' must be DamageCurveEnum.MAN "
+                f"(got {damage_curve.name})."
+            )
+
         paths = getattr(self.analysis, "damage_curve_paths", None)
         assets = getattr(self.analysis, "assets_for_damage_analysis", None)
 
-        if not paths or not assets:
+        # Must be provided and non-empty
+        if not paths:
             raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, both 'damage_curve_paths' and "
-                "'assets_for_damage_analysis' must be provided and non-empty."
+                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' must be provided and non-empty."
             )
+        if not assets:
+            raise ValueError(
+                "When analysis == DAMAGES_WITH_ASSET, 'assets_for_damage_analysis' must be provided and non-empty."
+            )
+
+        # Must be sequences with same length
+        if not isinstance(paths, list) or not isinstance(assets, list):
+            raise TypeError(
+                "Both 'damage_curve_paths' and 'assets_for_damage_analysis' must be sequences (e.g., list/tuple)."
+            )
+
         if len(paths) != len(assets):
             raise ValueError(
-                f"'damage_curve_paths' and 'assets_for_damage_analysis' must have the same length "
-                f"(got {len(paths)} and {len(assets)})."
+                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' and "
+                f"'assets_for_damage_analysis' must have the same length "
+                f"(len(paths)={len(paths)} != len(assets)={len(assets)})."
             )
 
     def execute(self) -> AnalysisResultWrapper:
