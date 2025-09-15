@@ -63,13 +63,63 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
     def _validate_for_damages_with_asset(self) -> None:
         """
+        Validation for the 'DAMAGES_WITH_ASSET' analysis mode.
+
+        Requirements:
+          - self.analysis.damage_curve == DamageCurveEnum.MAN
+          - self.analysis.asset_damage_curve_paths is provided and is dict[str, Path]
+          - Keys of asset_damage_curve_paths ∈ {'bridge','viaduct','tunnel'} (case-insensitive)
+        """
+        ALLOWED_ASSET_TYPES = {"bridge", "viaduct", "tunnel"}
+        analysis_mode = getattr(self.analysis, "analysis", None)
+        if analysis_mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+            return  # Not applicable in other modes
+
+        # 1) damage_curve must be MAN
+        damage_curve = getattr(self.analysis, "damage_curve", None)
+        if damage_curve != DamageCurveEnum.MAN:
+            raise ValueError(
+                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve' must be DamageCurveEnum.MAN "
+                f"(got {damage_curve.name})."
+            )
+
+        # 2) asset_damage_curve_paths must be provided and a dict[str, Path]
+        asset_damage_curve_paths = getattr(self.analysis, "asset_damage_curve_paths", None)
+        if not asset_damage_curve_paths:  # None or empty dict
+            raise ValueError(
+                "When analysis == DAMAGES_WITH_ASSET, 'asset_damage_curve_paths' must be provided and non-empty."
+            )
+        if not isinstance(asset_damage_curve_paths, dict):
+            raise TypeError("Expected 'asset_damage_curve_paths' to be a dict[str, Path].")
+
+        # 3) Keys must be allowed (case-insensitive)
+        invalid_keys = [k for k in asset_damage_curve_paths.keys()
+                        if not isinstance(k, str) or k.lower() not in ALLOWED_ASSET_TYPES]
+        if invalid_keys:
+            allowed_display = ", ".join(sorted(ALLOWED_ASSET_TYPES))
+            raise ValueError(
+                "Invalid keys in 'asset_damage_curve_paths': "
+                f"{invalid_keys}. Allowed keys are: {allowed_display}."
+            )
+
+        # 4) Values must be Path instances (as per your type: dict[str, Path])
+        wrong_types = {k: type(v).__name__ for k, v in asset_damage_curve_paths.items() if not isinstance(v, Path)}
+        if wrong_types:
+            details = ", ".join(f"{k} -> {t}" for k, t in wrong_types.items())
+            raise TypeError(
+                "All values in 'asset_damage_curve_paths' must be pathlib.Path instances "
+                f"(found: {details})."
+            )
+
+    def _validate_for_damages_with_asset(self) -> None:
+        """
         Enforce that when analysis == DAMAGES_WITH_ASSET:
         - damage_curve == DamageCurveEnum.MAN
         - damage_curve_paths and assets_for_damage_analysis are both provided and non-empty
         - they have the same length
         """
-        mode = getattr(self.analysis, "analysis", None)
-        if mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+        analysis_mode = getattr(self.analysis, "analysis", None)
+        if analysis_mode != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
             return  # Not applicable
 
         damage_curve = getattr(self.analysis, "damage_curve", None)
@@ -79,30 +129,30 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
                 f"(got {damage_curve.name})."
             )
 
-        paths = getattr(self.analysis, "damage_curve_paths", None)
-        assets = getattr(self.analysis, "assets_for_damage_analysis", None)
+        damage_curve_paths = getattr(self.analysis, "damage_curve_paths", None)
+        assets_for_damage_analysis = getattr(self.analysis, "assets_for_damage_analysis", None)
 
         # Must be provided and non-empty
-        if not paths:
+        if not damage_curve_paths:
             raise ValueError(
                 "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' must be provided and non-empty."
             )
-        if not assets:
+        if not assets_for_damage_analysis:
             raise ValueError(
                 "When analysis == DAMAGES_WITH_ASSET, 'assets_for_damage_analysis' must be provided and non-empty."
             )
 
         # Must be sequences with same length
-        if not isinstance(paths, list) or not isinstance(assets, list):
+        if not isinstance(damage_curve_paths, list) or not isinstance(assets_for_damage_analysis, list):
             raise TypeError(
                 "Both 'damage_curve_paths' and 'assets_for_damage_analysis' must be sequences (e.g., list/tuple)."
             )
 
-        if len(paths) != len(assets):
+        if len(damage_curve_paths) != len(assets_for_damage_analysis):
             raise ValueError(
                 "When analysis == DAMAGES_WITH_ASSET, 'damage_curve_paths' and "
                 f"'assets_for_damage_analysis' must have the same length "
-                f"(len(paths)={len(paths)} != len(assets)={len(assets)})."
+                f"(len(paths)={len(damage_curve_paths)} != len(assets)={len(assets_for_damage_analysis)})."
             )
 
     def execute(self) -> AnalysisResultWrapper:

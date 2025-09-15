@@ -135,8 +135,8 @@ class AnalysisSectionDamages(AnalysisSectionBase):
     damage_curve: DamageCurveEnum = field(
         default_factory=lambda: DamageCurveEnum.INVALID
     )
-    assets_for_damage_analysis: Optional[str] = None
-    damage_curve_paths: Optional[Path] = None
+
+    asset_damage_curve_paths: Optional[dict[str, Path]] = None
 
     risk_calculation_mode: RiskCalculationModeEnum = field(
         default_factory=lambda: RiskCalculationModeEnum.NONE
