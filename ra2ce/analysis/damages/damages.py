@@ -11,6 +11,7 @@ from ra2ce.analysis.analysis_base import AnalysisBase
 from ra2ce.analysis.analysis_config_data.analysis_config_data import (
     AnalysisSectionDamages,
 )
+from ra2ce.analysis.analysis_config_data.enums.analysis_damages_enum import AnalysisDamagesEnum
 from ra2ce.analysis.analysis_config_data.enums.damage_curve_enum import DamageCurveEnum
 from ra2ce.analysis.analysis_config_data.enums.event_type_enum import EventTypeEnum
 from ra2ce.analysis.analysis_config_data.enums.risk_calculation_mode_enum import (
@@ -52,9 +53,29 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         self.input_path = analysis_input.input_path
         self.output_path = analysis_input.output_path
         self.reference_base_graph_hazard = base_graph_hazard
+
+        self._validate_for_damages_with_asset()
+
         if self.analysis.damage_curve == DamageCurveEnum.MAN:
             self.manual_damage_functions = ManualDamageFunctionsReader().read(
                 self.input_path.joinpath("damage_functions")
+            )
+
+    def _validate_for_damages_with_asset(self) -> None:
+        if self.analysis.analysis != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+            return
+        paths = getattr(self.analysis, "damage_curve_paths", None)
+        assets = getattr(self.analysis, "assets_for_damage_analysis", None)
+
+        if not paths or not assets:
+            raise ValueError(
+                "When analysis == DAMAGES_WITH_ASSET, both 'damage_curve_paths' and "
+                "'assets_for_damage_analysis' must be provided and non-empty."
+            )
+        if len(paths) != len(assets):
+            raise ValueError(
+                f"'damage_curve_paths' and 'assets_for_damage_analysis' must have the same length "
+                f"(got {len(paths)} and {len(assets)})."
             )
 
     def execute(self) -> AnalysisResultWrapper:
