@@ -22,6 +22,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any, Hashable, Optional
 
 import pandas as pd
 
@@ -113,39 +114,45 @@ class DamageFunctionByRoadTypeByLane:
         damage_function_prefix: str,
         hazard_prefix: str,
         event_prefix: str,
+        asset_type: Optional[str] = None,   # <-- NEW PARAM
     ) -> pd.DataFrame:
         """
-        Calculates the damage for one event. The prefixes are used to find/set the right df columns.
+        Calculates the damage for one event, but only for rows that match the asset filter:
+          - If `asset_type` ∈ {"bridge", "viaduct", "tunnel"}: only rows with that `infra_type`.
+          - Else (asset_type is None or other like 'standard'): only rows whose `infra_type`
+            is NOT in the allowed set.
 
-        Args:
-            df (pd.DataFrame): dataframe with road network data.
-            damage_function_prefix (str): prefix to identify the right damage function e.g. 'A'.
-            hazard_prefix (str): prefix to identify the right hazard e.g. 'F'.
-            event_prefix (str): prefix to identify the right event, e.g. 'EV1'
-
-        Returns:
-            pd.DataFrame: dataframe data with the damage calculation added as new column
+        The prefixes are used to find/set the right df columns.
         """
+        interpolator = self.damage_fraction.interpolator
 
-        interpolator = (
-            self.damage_fraction.interpolator
-        )  # get the interpolator function
+        result_col = f"dam_{event_prefix}_{damage_function_prefix}"
+        max_dam_col = f"{damage_function_prefix}_temp_max_dam"
+        hazard_severity_col = f"{hazard_prefix}_{event_prefix}_me"  # mean
+        hazard_fraction_col = f"{hazard_prefix}_{event_prefix}_fr"  # fraction
 
-        # Find correct columns in dataframe
-        result_col = "dam_{}_{}".format(event_prefix, damage_function_prefix)
-        max_dam_col = "{}_temp_max_dam".format(damage_function_prefix)
-        hazard_severity_col = "{}_{}_me".format(
-            hazard_prefix, event_prefix
-        )  # mean is hardcoded now
-        hazard_fraction_col = "{}_{}_fr".format(
-            hazard_prefix, event_prefix
-        )  # fraction column is hardcoded
+        allowed_asset_types = {"bridge", "viaduct", "tunnel"}
 
-        df[result_col] = round(
-            df[max_dam_col].astype(float)  # max damage (euro/m)
-            * interpolator(df[hazard_severity_col].astype(float))  # damage curve  (-)
-            * df["length"]  # segment length (m)
-            * df[hazard_fraction_col],
-            0,
-        )  # round to whole numbers
+        infra = df["infra_type"].astype(str).str.lower()
+        current = (asset_type or "").strip().lower()
+
+        if current in allowed_asset_types:
+            row_mask = infra.eq(current)
+        else:
+            # 'standard' / 'non' / None => rows that are not bridge/viaduct/tunnel
+            row_mask = ~infra.isin(allowed_asset_types)
+
+        if not row_mask.any():
+            # No rows to compute for this asset filter
+            return df
+
+        # Compute only on the masked subset
+        values = (
+            df.loc[row_mask, max_dam_col].astype(float)
+            * interpolator(df.loc[row_mask, hazard_severity_col].astype(float))
+            * df.loc[row_mask, "length"]
+            * df.loc[row_mask, hazard_fraction_col]
+        ).round(0)
+
+        df.loc[row_mask, result_col] = values
         return df

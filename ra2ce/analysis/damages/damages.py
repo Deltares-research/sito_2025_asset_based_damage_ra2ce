@@ -44,9 +44,17 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
     reference_base_graph_hazard: MultiGraph
     manual_damage_functions: ManualDamageFunctions = None
 
+    hazard_prefix: str
+    road_gdf: pd.DataFrame
+    hazard_columns: list[str]
+
     def __init__(
-        self, analysis_input: AnalysisInputWrapper, base_graph_hazard: MultiGraph
+        self,
+        analysis_input: AnalysisInputWrapper,
+        base_graph_hazard: MultiGraph,
+        hazard_prefix: str = "F",
     ) -> None:
+
         self.analysis = analysis_input.analysis
         self.graph_file = None
         self.graph_file_hazard = analysis_input.graph_file_hazard
@@ -54,14 +62,59 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         self.output_path = analysis_input.output_path
         self.reference_base_graph_hazard = base_graph_hazard
 
-        if self.analysis.analysis != AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
-            self._validate_for_damages_with_asset()
-            self._load_asset_damage_curves()
+        self.hazard_prefix = hazard_prefix
+        self._prepare_road_gdf()
 
         if self.analysis.damage_curve == DamageCurveEnum.MAN:
-            self.manual_damage_functions = ManualDamageFunctionsReader().read(
-                self.input_path.joinpath("damage_functions")
-            )
+            self.manual_damage_functions = self._load_manual_damage_functions()
+
+        if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+            self._validate_for_damages_with_asset()
+            self._rename_highway_by_assets()
+
+    def _prepare_road_gdf(self) -> None:
+        """
+        Load the network with hazard data once and rename hazard columns to RA2CE conventions.
+        Also computes and stores the hazard value columns for later use.
+        """
+        road_gdf = self.graph_file_hazard.get_graph()
+
+        # rename columns to RA2CE convention (e.g., RP100_fr -> F_RP100_fr, EV1_mi -> F_EV1_mi)
+        renamed_cols = self._rename_road_gdf_to_conventions(list(road_gdf.columns))
+        road_gdf.columns = renamed_cols
+
+        # identify hazard value columns (those starting with e.g. 'F_')
+        hazard_tag = f"{self.hazard_prefix}_"
+        hazard_cols = [c for c in road_gdf.columns if c.startswith(hazard_tag)]
+
+        self.road_gdf = road_gdf
+        self.hazard_columns = hazard_cols
+
+    def _rename_road_gdf_to_conventions(self, road_gdf_columns: list[str]) -> list[str]:
+        """
+        Rename columns in the road_gdf to RA2CE conventions:
+
+        e.g.
+            RP100_fr -> F_RP100_fr
+            EV1_mi   -> F_EV1_mi
+        """
+        new_cols: list[str] = []
+        for c in road_gdf_columns:
+            if c.startswith("RP") or c.startswith("EV"):
+                new_cols.append(f"{self.hazard_prefix}_" + c)
+            else:
+                new_cols.append(c)
+        return new_cols
+
+    def _load_manual_damage_functions(self) -> ManualDamageFunctions:
+        """
+        Load and normalize manual damage function keys to lowercase.
+        """
+        raw = ManualDamageFunctionsReader().read(
+            self.input_path.joinpath("damage_functions")
+        )
+        # Lowercase only top-level keys, preserving values as-is
+        return {str(k).lower(): v for k, v in raw.items()}
 
     def _validate_for_damages_with_asset(self) -> None:
         """
@@ -72,7 +125,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
           - self.analysis.asset_damage_curve_paths is provided and is dict[str, Path]
           - Keys of asset_damage_curve_paths ∈ {'bridge','viaduct','tunnel'} (case-insensitive)
         """
-        ALLOWED_ASSET_TYPES = {"bridge", "viaduct", "tunnel"}
+        allowed_asset_types = {"bridge", "viaduct", "tunnel"}
 
         # 1) damage_curve must be MAN
         damage_curve = getattr(self.analysis, "damage_curve", None)
@@ -93,9 +146,9 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         # 3) Keys must be allowed (case-insensitive)
         invalid_keys = [k for k in asset_damage_curve_paths.keys()
-                        if not isinstance(k, str) or k.lower() not in ALLOWED_ASSET_TYPES]
+                        if not isinstance(k, str) or k.lower() not in allowed_asset_types]
         if invalid_keys:
-            allowed_display = ", ".join(sorted(ALLOWED_ASSET_TYPES))
+            allowed_display = ", ".join(sorted(allowed_asset_types))
             raise ValueError(
                 "Invalid keys in 'asset_damage_curve_paths': "
                 f"{invalid_keys}. Allowed keys are: {allowed_display}."
@@ -110,79 +163,39 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
                 f"(found: {details})."
             )
 
-    def _load_asset_damage_curves(self) -> None:
+    def _rename_highway_by_assets(self) -> None:
         """
-        Load damage curves for each asset type specified in
-        self.analysis.asset_damage_curve_paths using ManualDamageFunctionsReader.
-
-        Behavior:
-          - Normalizes keys to lowercase (e.g., 'Bridge' -> 'bridge')
-          - Resolves relative paths against self.input_path
-          - Ensures each path exists and is a directory
-          - Uses ManualDamageFunctionsReader().read(<folder>) to load curves
-          - Populates:
-              * self.asset_damage_curve_paths : dict[str, Path]
-              * self.asset_damage_curves      : dict[str, ManualDamageFunctions]
+        For rows with asset flags, normalize the 'highway' value:
+          - bridge == 'yes'      -> 'bridge'
+          - tunnel == 'yes'      -> 'tunnel'
+          - bridge == 'viaduct'  -> 'viaduct'
+        Precedence: viaduct > bridge > tunnel.
         """
-        from pathlib import Path  # local import to keep this snippet standalone
+        df = self.road_gdf
 
-        asset_damage_curve_paths = getattr(self.analysis, "asset_damage_curve_paths", None)
+        def col_lower(name: str) -> pd.Series:
+            if name in df.columns:
+                return df[name].astype(str).str.lower()
+            # empty string avoids accidental 'yes' matches
+            return pd.Series("", index=df.index)
 
-        # Normalize keys to lowercase and values to absolute Paths
-        normalized_paths: dict[str, Path] = {}
-        for k, v in asset_damage_curve_paths.items():
-            key = k.lower()
-            path = v
+        bridge_col = col_lower("bridge")
+        tunnel_col = col_lower("tunnel")
 
-            # Resolve relative to the analysis input folder if not absolute
-            if not path.is_absolute():
-                path = (self.input_path / path).resolve()
+        mask_viaduct = bridge_col.eq("viaduct")
+        mask_bridge = bridge_col.eq("yes")
+        mask_tunnel = tunnel_col.eq("yes")
 
-            if not path.exists():
-                raise FileNotFoundError(f"Damage curve folder not found for '{key}': {path}")
-            if not path.is_dir():
-                raise ValueError(f"Damage curve path for '{key}' is not a directory: {path}")
+        # Apply precedence: viaduct > bridge > tunnel
+        df.loc[mask_viaduct, "highway"] = "viaduct"
+        df.loc[mask_bridge & ~mask_viaduct, "highway"] = "bridge"
+        df.loc[mask_tunnel & ~mask_viaduct & ~mask_bridge, "highway"] = "tunnel"
 
-            normalized_paths[key] = path
-
-        # Read each asset-specific damage curve folder
-        reader = ManualDamageFunctionsReader()
-        loaded_curves: dict[str, ManualDamageFunctions] = {}
-        for key, folder in normalized_paths.items():
-            loaded_curves[key] = reader.read(folder)
-
-        self.asset_damage_curves = loaded_curves
+        self.road_gdf = df
 
     def execute(self) -> AnalysisResultWrapper:
-        def _rename_road_gdf_to_conventions(road_gdf_columns: list[str]) -> list[str]:
-            """
-            Rename the columns in the road_gdf to the conventions of the ra2ce documentation
-
-            'eg' RP100_fr -> F_RP100_me
-                        -> F_EV1_mi
-
-            """
-            cs = road_gdf_columns
-            ### Handle return period columns
-            new_cols = []
-            for c in cs:
-                if c.startswith("RP") or c.startswith("EV"):
-                    new_cols.append(f"{hazard_prefix}_" + c)
-                else:
-                    new_cols.append(c)
-
-            ### Todo add handling of events if this gives a problem
-            return new_cols
-
-        hazard_prefix = "F"
-        # Open the network with hazard data
-        road_gdf = self.graph_file_hazard.get_graph()
-        road_gdf.columns = _rename_road_gdf_to_conventions(road_gdf.columns)
-
-        # Find the hazard columns; these may be events or return periods
-        val_cols = [
-            col for col in road_gdf.columns if f"{hazard_prefix}" in col.split("_")
-        ]
+        road_gdf = self.road_gdf
+        val_cols = self.hazard_columns
 
         # Read the desired damage function
         damage_function = self.analysis.damage_curve
@@ -190,7 +203,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         # Choose between event or return period based analysis
         if self.analysis.event_type == EventTypeEnum.EVENT:
             event_gdf = DamageNetworkEvents(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.asset_damage_curves
+                road_gdf, val_cols, self.analysis.representative_damage_percentage
             )
             event_gdf.main(
                 damage_function=damage_function,

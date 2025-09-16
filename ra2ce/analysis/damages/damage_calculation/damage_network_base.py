@@ -21,8 +21,6 @@
 
 import logging
 from abc import ABC, abstractmethod
-from pathlib import Path
-from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -49,8 +47,7 @@ class DamageNetworkBase(ABC):
         self,
         road_gdf: GeoDataFrame,
         val_cols: list[str],
-        representative_damage_percentage: float,
-        asset_damage_curves: Optional[dict[str, ManualDamageFunctions]]
+        representative_damage_percentage: float
     ):
         """Construct the Data"""
         self.val_cols = val_cols
@@ -59,8 +56,6 @@ class DamageNetworkBase(ABC):
         self.stats = set([x.split("_")[-1] for x in val_cols])
         self.representative_damage_percentage = representative_damage_percentage
 
-        if asset_damage_curves:
-            self.asset_damage_curves = asset_damage_curves
         # TODO: also track the damage cols after the dam calculation, that is useful for the risk calc. module
         # TODO: also create constructors of the children of this class
 
@@ -202,14 +197,17 @@ class DamageNetworkBase(ABC):
             len(manual_damage_functions.damage_functions) > 0
         ), "No damage functions were loaded"
 
-        for _damage_func in manual_damage_functions.damage_functions.values():
+        for _asset_key, _damage_func in manual_damage_functions.damage_functions.items():
             # Add max damage values to df
             df = _damage_func.add_max_damage(df, _damage_func.prefix)
+            asset_type = (str(_asset_key).lower() if _asset_key is not None else None)
             for event in events:
-                # Add apply interpolator objects
-                event_prefix = event
                 df = _damage_func.calculate_damage(
-                    df, _damage_func.prefix, hazard_prefix, event_prefix
+                    df=df,
+                    damage_function_prefix=_damage_func.prefix,
+                    hazard_prefix=hazard_prefix,
+                    event_prefix=event,
+                    asset_type=asset_type,
                 )
 
         # Only transfer the final results to the damage column
