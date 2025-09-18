@@ -194,10 +194,10 @@ class DamageNetworkBase(ABC):
         df = self._gdf_mask
 
         assert (
-            len(manual_damage_functions.damage_functions) > 0
+            len(manual_damage_functions) > 0
         ), "No damage functions were loaded"
 
-        for _asset_key, _damage_func in manual_damage_functions.damage_functions.items():
+        for _asset_key, _damage_func in manual_damage_functions.items():
             # Add max damage values to df
             df = _damage_func.add_max_damage(df, _damage_func.prefix)
             asset_type = (str(_asset_key).lower() if _asset_key is not None else None)

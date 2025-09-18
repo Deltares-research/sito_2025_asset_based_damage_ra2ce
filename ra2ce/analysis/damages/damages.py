@@ -68,7 +68,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         if self.analysis.damage_curve == DamageCurveEnum.MAN:
             self.manual_damage_functions = self._load_manual_damage_functions()
 
-        if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSET:
+        if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSETS:
             self._validate_for_damages_with_asset()
             self._rename_highway_by_assets()
 
@@ -114,7 +114,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
             self.input_path.joinpath("damage_functions")
         )
         # Lowercase only top-level keys, preserving values as-is
-        return {str(k).lower(): v for k, v in raw.items()}
+        return {str(k).lower(): v for k, v in raw.damage_functions.items()}
 
     def _validate_for_damages_with_asset(self) -> None:
         """
@@ -135,41 +135,13 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
                 f"(got {damage_curve.name})."
             )
 
-        # 2) asset_damage_curve_paths must be provided and a dict[str, Path]
-        asset_damage_curve_paths = getattr(self.analysis, "asset_damage_curve_paths", None)
-        if not asset_damage_curve_paths:  # None or empty dict
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'asset_damage_curve_paths' must be provided and non-empty."
-            )
-        if not isinstance(asset_damage_curve_paths, dict):
-            raise TypeError("Expected 'asset_damage_curve_paths' to be a dict[str, Path].")
-
-        # 3) Keys must be allowed (case-insensitive)
-        invalid_keys = [k for k in asset_damage_curve_paths.keys()
-                        if not isinstance(k, str) or k.lower() not in allowed_asset_types]
-        if invalid_keys:
-            allowed_display = ", ".join(sorted(allowed_asset_types))
-            raise ValueError(
-                "Invalid keys in 'asset_damage_curve_paths': "
-                f"{invalid_keys}. Allowed keys are: {allowed_display}."
-            )
-
-        # 4) Values must be Path instances (as per your type: dict[str, Path])
-        wrong_types = {k: type(v).__name__ for k, v in asset_damage_curve_paths.items() if not isinstance(v, Path)}
-        if wrong_types:
-            details = ", ".join(f"{k} -> {t}" for k, t in wrong_types.items())
-            raise TypeError(
-                "All values in 'asset_damage_curve_paths' must be pathlib.Path instances "
-                f"(found: {details})."
-            )
-
     def _rename_highway_by_assets(self) -> None:
         """
         For rows with asset flags, normalize the 'highway' value:
           - bridge == 'yes'      -> 'bridge'
           - tunnel == 'yes'      -> 'tunnel'
           - bridge == 'viaduct'  -> 'viaduct'
-        Precedence: viaduct > bridge > tunnel.
+
         """
         df = self.road_gdf
 
@@ -214,7 +186,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         elif self.analysis.event_type == EventTypeEnum.RETURN_PERIOD:
             return_period_gdf = DamageNetworkReturnPeriods(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.asset_damage_curves
+                road_gdf, val_cols, self.analysis.representative_damage_percentage
             )
             return_period_gdf.main(
                 damage_function=damage_function,
