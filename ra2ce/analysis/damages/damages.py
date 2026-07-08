@@ -1,7 +1,7 @@
 import logging
 import re
 from pathlib import Path
-from typing import Mapping, Any, Dict, Optional
+from typing import Mapping, Any, Dict
 
 import numpy as np
 import pandas as pd
@@ -33,54 +33,18 @@ from ra2ce.analysis.damages.damage_functions.manual_damage_functions_reader impo
     ManualDamageFunctionsReader,
 )
 from ra2ce.analysis.damages.damages_result_wrapper import DamagesResultWrapper
+from ra2ce.analysis.damages.supported_assets import (
+    ASSET_ALIASES,
+    BRIDGE_ASSET_MAP,
+    CANONICAL_ASSET_TYPES,
+    TUNNEL_ASSET_MAP,
+    canonicalize_asset_name,
+)
 from ra2ce.network.graph_files.network_file import NetworkFile
 
 
 
 logger = logging.getLogger(__name__)
-# Your current maps (as given)
-_BRIDGE_MAP = {
-    "yes": "bridge",
-    "viaduct": "viaduct",
-    "aqueduct": "aqueduct",
-    "boardwalk": "boardwalk",
-    "movable_bridge": "movable_bridge",
-    "trestle": "trestle",
-    "cantilever": "cantilever",
-    "low_water_crossing": "low_water_crossing",
-}
-_TUNNEL_MAP = {
-    "yes": "tunnel",
-    "culvert": "culvert",
-    "building_passage": "building_passage",
-    "avalanche_protector": "avalanche_protector",
-    "flooded": "flooded",
-}
-
-# Canonical set implied by your bridge/tunnel maps (output labels)
-_CANONICAL_ASSET_TYPES: set[str] = set(_BRIDGE_MAP.values()) | set(_TUNNEL_MAP.values())
-
-# Alias/synonym table (keys are normalized: casefolded, spaces/hyphens -> underscores)
-_ASSET_ALIASES: dict[str, str] = {
-    # spelling/spacing/hyphen variants
-    "low_water_crossing": "low_water_crossing",   # self-map to be explicit
-    "low-water-crossing": "low_water_crossing",   # will be normalized anyway
-    "low water crossing": "low_water_crossing",
-
-    "building_passage": "building_passage",
-    "building-passage": "building_passage",
-    "building passage": "building_passage",
-
-    "avalanche_protector": "avalanche_protector",
-    "avalanche-protector": "avalanche_protector",
-    "avalanche protector": "avalanche_protector",
-
-    "movable_bridge": "movable_bridge",
-    "movable-bridge": "movable_bridge",
-    "movable bridge": "movable_bridge",
-    "movable": "movable_bridge",  # common shorthand for the OSM bridge subtype
-    "movables": "movable_bridge",
-}
 
 
 class Damages(AnalysisBase, AnalysisDamagesProtocol):
@@ -102,7 +66,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         base_graph_hazard: MultiGraph,
         hazard_prefix: str = "F",
     ) -> None:
-        self.allowed_asset_types: set[str] = set(_CANONICAL_ASSET_TYPES)
+        self.allowed_asset_types: set[str] = set(CANONICAL_ASSET_TYPES)
 
         self.analysis = analysis_input.analysis
         self.graph_file = None
@@ -159,9 +123,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
     @staticmethod
     def _to_canonical_asset(
             key: Any,
-            *,
-            aliases: Optional[dict[str, str]] = None,
-    ) -> tuple[Optional[str], str]:
+        ) -> tuple[str, str]:
         """
         Normalize an asset key:
           - trim whitespace
@@ -171,29 +133,8 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
           - handle simple plurals (sole place for plural handling)
         Returns (canonical_asset | None, original_str).
         """
-        if aliases is None:
-            aliases = _ASSET_ALIASES
-
         original = str(key)
-        # normalize: strip, casefold, spaces/hyphens -> underscores, collapse repeats
-        s = re.sub(r"[\s\-]+", "_", original.strip()).casefold().strip("_")
-
-        # 1) form-variant alias mapping (no plurals inside aliases)
-        if s in aliases:
-            canonical = aliases[s]
-        else:
-            # 2) conservative plural -> singular rules (the only place doing plural correction)
-            if s.endswith("ies") and len(s) > 3:
-                singular = s[:-3] + "y"  # policies -> policy
-            elif s.endswith(("sses", "shes", "ches", "xes", "zes")) and len(s) > 4:
-                singular = s[:-2]  # classes -> class
-            elif s.endswith("s") and len(s) > 1:
-                singular = s[:-1]  # tunnels -> tunnel
-            else:
-                singular = s
-            canonical = singular
-
-        return canonical, original
+        return canonicalize_asset_name(original), original
 
     def _load_manual_damage_functions(self) -> dict[str, Any]:
         """
@@ -209,7 +150,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         )
         normalized: dict[str, Any] = {}
         for k, v in raw.damage_functions.items():
-            canonical, original = self._to_canonical_asset(k, aliases=_ASSET_ALIASES)
+            canonical, original = self._to_canonical_asset(k)
             if canonical in normalized:
                 logger.warning(
                     "Duplicate/alias entries for asset '%s' encountered (e.g., '%s'). "
@@ -251,8 +192,8 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         canon: set[str] = set()
         for asset in assets:
-            c, _orig = self._to_canonical_asset(asset, aliases=_ASSET_ALIASES)
-            if c is not None and c in _CANONICAL_ASSET_TYPES:
+            c, _orig = self._to_canonical_asset(asset)
+            if c and c in CANONICAL_ASSET_TYPES:
                 canon.add(c)
 
         return canon
@@ -260,7 +201,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
     def _rename_highway_by_assets(self) -> None:
         """
         Convert 'highway' to asset labels (bridge/tunnel variants) ONLY if:
-          - bridge/tunnel columns contain a recognized value in _BRIDGE_MAP/_TUNNEL_MAP, and
+          - bridge/tunnel columns contain a recognized value in BRIDGE_ASSET_MAP/TUNNEL_ASSET_MAP, and
           - that canonical asset is present among the loaded manual damage functions.
 
         Precedence: bridge types > tunnel types.
@@ -289,12 +230,12 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         tunnel = _norm("tunnel")
 
         # Recognized inputs only (do not fall back to generic labels if unrecognized)
-        bridge_keys = set(_BRIDGE_MAP.keys())
-        tunnel_keys = set(_TUNNEL_MAP.keys())
+        bridge_keys = set(BRIDGE_ASSET_MAP.keys())
+        tunnel_keys = set(TUNNEL_ASSET_MAP.keys())
 
         # Map to canonical asset labels
-        bridge_norm = bridge.map(_BRIDGE_MAP)  # -> e.g., "viaduct", "bridge", ...
-        tunnel_norm = tunnel.map(_TUNNEL_MAP)  # -> e.g., "culvert", "tunnel", ...
+        bridge_norm = bridge.map(BRIDGE_ASSET_MAP)  # -> e.g., "viaduct", "bridge", ...
+        tunnel_norm = tunnel.map(TUNNEL_ASSET_MAP)  # -> e.g., "culvert", "tunnel", ...
 
         loaded_assets = self._assets_from_damage_functions()
         if not loaded_assets:

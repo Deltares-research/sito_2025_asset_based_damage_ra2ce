@@ -22,48 +22,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Hashable, Optional
+from typing import Hashable, Optional
 
 import pandas as pd
-import re
-
-
-# Alias/synonym table (keys are normalized: casefolded, spaces/hyphens -> underscores)
-_ASSET_ALIASES: dict[str, str] = {
-    "low_water_crossing": "low_water_crossing",
-    "low-water-crossing": "low_water_crossing",
-    "low water crossing": "low_water_crossing",
-
-    "building_passage": "building_passage",
-    "building-passage": "building_passage",
-    "building passage": "building_passage",
-
-    "avalanche_protector": "avalanche_protector",
-    "avalanche-protector": "avalanche_protector",
-    "avalanche protector": "avalanche_protector",
-
-    "movable_bridge": "movable_bridge",
-    "movable-bridge": "movable_bridge",
-    "movable bridge": "movable_bridge",
-    "movable": "movable_bridge",  # common shorthand
-    "moveable": "movable_bridge",  # <-- add this misspelling
-
-    'culverts': 'culvert',  # plurals
-    'bridges': 'bridge',
-    'tunnels': 'tunnel',
-    'viaducts': 'viaduct',
-    "movables": "movable_bridge",
-    "aqueducts": "aqueduct",
-    "boardwalks": "boardwalk",
-    "trestles": "trestle",
-    "cantilever": "cantilever",
-}
 
 
 from ra2ce.analysis.damages.damage_functions.damage_fraction_uniform import (
     DamageFractionUniform,
 )
 from ra2ce.analysis.damages.damage_functions.max_damage import MaxDamage
+from ra2ce.analysis.damages.supported_assets import canonicalize_asset_name
 
 
 @dataclass(kw_only=True)
@@ -137,12 +105,7 @@ class DamageFunctionByRoadTypeByLane:
 
     @staticmethod
     def _normalize_asset_key(s: str) -> str:
-        """
-        Normalize to lowercase, collapse spaces/hyphens to underscores,
-        then apply alias mapping. If no alias, return normalized token.
-        """
-        key = re.sub(r"[\s\-]+", "_", str(s).casefold().strip())
-        return _ASSET_ALIASES.get(key, key)
+        return canonicalize_asset_name(s)
 
     # Todo: these two below functions are maybe better implemented at a lower level?
     def add_max_damage(self, df: pd.DataFrame, prefix: str | None = None) -> pd.DataFrame:
