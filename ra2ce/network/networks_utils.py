@@ -3,7 +3,7 @@
                       Version 3, 29 June 2007
 
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -45,8 +45,6 @@ from shapely.geometry.base import BaseGeometry, BaseMultipartGeometry
 from shapely.ops import linemerge, unary_union
 from tqdm import tqdm
 
-from ra2ce.network.network_config_data.enums.road_type_enum import RoadTypeEnum
-
 
 def convert_unit(unit: str) -> Optional[float]:
     """Converts unit to meters.
@@ -78,15 +76,18 @@ def draw_progress_bar(percent: float, bar_length: int = 20):
 def merge_lines_automatic(
     lines_gdf: gpd.GeoDataFrame, id_name: str, aadt_names: list[str], crs_: pyproj.CRS
 ) -> tuple[gpd.GeoDataFrame, gpd.GeoDataFrame]:
-    """Automatically merge lines based on a config file
+    """Automatically merge lines based on a configuration file.
+
     Args:
-        lines_gdf (geodataframe): the network with edges that can possibly be merged
-        id_name (string): name of the Unique ID column in the lines_gdf
-        aadt_names (list of strings): names of the columns of the AADT (average annual daily traffic)
-        crs_ (int): the EPSG number of the coordinate reference system that is used
+        lines_gdf (gpd.GeoDataFrame): GeoDataFrame of the network with edges that can be merged.
+        id_name (str): Name of the unique ID column in ``lines_gdf``.
+        aadt_names (list[str]): Column names representing AADT (average annual daily traffic).
+        crs_ (pyproj.CRS): Coordinate reference system.
+
     Returns:
-        lines_gdf (geodataframe): the network with edges that are (not) merged
-        lines_merged (geodataframe): the lines that are merged, if lines are merged. Otherwise it returns an empty GDF
+        tuple[gpd.GeoDataFrame, gpd.GeoDataFrame]:
+            - GeoDataFrame of the network with merged and unmerged edges.
+            - GeoDataFrame of merged lines. Returns an empty GeoDataFrame if no lines are merged.
     """
     list_lines = list(lines_gdf["geometry"])
 
@@ -249,17 +250,19 @@ def merge_lines_automatic(
 
 
 def get_distance(a_b_tuple: tuple[tuple[float, float], tuple[float, float]]) -> float:
-    """
-    Gets the distance (in meters) between two points given as a tuple thanks to geopy.distance functionality.
-    TODO: Investigate whether this function is really required, instead of GeoPandasDataFrame,
-     to reduce the usage of external dependencies.
+    """Get the distance (in meters) between two points.
+
+    Uses ``geopy.distance`` internally.
 
     Args:
-        a_b_tuple (tuple[float]): Tuple representing two points.
+        a_b_tuple (tuple[tuple[float, float], tuple[float, float]]):
+            A tuple containing two coordinate pairs (latitude, longitude).
 
     Returns:
-        float: Distance between two points in meters.
+        float: Distance between the two points in meters.
     """
+    # TODO: Investigate whether this function is really required, instead of GeoPandasDataFrame,
+    # to reduce the usage of external dependencies.
     distance.geodesic.ELLIPSOID = "WGS-84"
     from_a, to_b = a_b_tuple
     latlon = lambda lonlat: (lonlat[1], lonlat[0])
@@ -491,10 +494,15 @@ def nearest_neighbor_within(
 def vertices_from_lines(
     lines: list[BaseMultipartGeometry], list_ids: list[str]
 ) -> dict:
-    """Return dict of with values: unique vertices from list of LineStrings.
-    keys: index of LineString in original list
-    From shapely_tools:
-        Build on library from https://github.com/ojdo/python-tools/blob/master/shapelytools.py
+    """Extract unique vertices from a list of LineStrings.
+
+    Args:
+        lines (list[BaseMultipartGeometry]): List of LineString or MultiLineString geometries.
+        list_ids (list[str]): Identifiers corresponding to each LineString.
+
+    Returns:
+        dict: A dictionary where keys are indices of LineStrings in the original list
+        and values are the unique vertices.
     """
     vertices_dict = {}
     for i, line in zip(list_ids, lines):
@@ -509,11 +517,15 @@ def vertices_from_lines(
 
 
 def create_nodes(merged_lines, crs_, cut_at_intersections):
-    """Creates shapely points on intersections and endpoints of a list of shapely lines
+    """Create shapely points at intersections and endpoints of a list of shapely lines.
+
     Args:
-        merged_lines [list of shapely LineStrings]: the edges of a graph
+        merged_lines (list[shapely.geometry.LineString]): Edges of a graph.
+        crs_: Coordinate reference system of the project.
+        cut_at_intersections (bool): Whether to create nodes at line intersections.
+
     Returns:
-        nodes [list of shapely Points]: the nodes of a graph
+        list[shapely.geometry.Point]: Nodes of the graph.
     """
     logging.info("Started creating nodes...")
     list_lines = list(merged_lines["geometry"])
@@ -581,17 +593,19 @@ def create_nodes(merged_lines, crs_, cut_at_intersections):
     return points_gdf
 
 
-def cut_lines(lines_gdf, nodes, id_name: str, tolerance, crs_):
-    """Cuts lines at the nodes, with a certain tolerance
+def cut_lines(lines_gdf, nodes, id_name: str, tolerance, crs_: str):
+    """Cut lines at the given nodes with a certain tolerance.
+
     Args:
-        lines_gdf (geodataframe): the network with edges that should be cut
-        nodes (geodataframe): points to use for cutting the edges
-        idName (string): name of the Unique ID column in the lines_gdf
-        tolerance: how far a point should be from the edge to cut the edge
-        crs_: the CRS of the project
+        lines_gdf (GeoDataFrame): The network with edges that should be cut.
+        nodes (GeoDataFrame): Points to use for cutting the edges.
+        id_name (str): Name of the unique ID column in ``lines_gdf``.
+        tolerance (float): Maximum distance between a point and an edge for the edge to be cut.
+        crs_ (str): Coordinate reference system of the project.
 
     Returns:
-        lines_gdf (geodataframe): the network with cut edges. The IDs of the new edges counting +1 on the maximum ID number
+        GeoDataFrame: The network with cut edges. The IDs of the new edges start at the maximum
+        existing ID number + 1.
     """
     max_id = max(lines_gdf[id_name])
     list_columns = list(lines_gdf.columns.values)
@@ -673,7 +687,7 @@ def cut_lines(lines_gdf, nodes, id_name: str, tolerance, crs_):
             to_remove.append(idx)
 
     lines_gdf.drop(to_remove, inplace=True)
-    lines_gdf = lines_gdf.append(to_add, ignore_index=True)
+    lines_gdf = pd.concat([lines_gdf] + to_add, ignore_index=True)
     return lines_gdf
 
 
@@ -740,19 +754,22 @@ def cut(line: BaseMultipartGeometry, distance: float) -> tuple[LineString, LineS
 def join_nodes_edges(
     gdf_nodes: gpd.GeoDataFrame, gdf_edges: gpd.GeoDataFrame, id_name: str
 ) -> gpd.GeoDataFrame:
-    """Creates tuples from the adjacent nodes and add as column in geodataframe.
+    """Create tuples from adjacent nodes and add them as a column in the edges GeoDataFrame.
+
     Args:
-        gdf_nodes [geodataframe]: geodataframe of the nodes of a graph
-        gdf_edges [geodataframe]: geodataframe of the edges of a graph
+        gdf_nodes (gpd.GeoDataFrame): GeoDataFrame of graph nodes.
+        gdf_edges (gpd.GeoDataFrame): GeoDataFrame of graph edges.
+        id_name (str): Column name used as unique identifier for nodes.
+
     Returns:
-        result [geodataframe]: geodataframe of adjacent nodes from edges
+        gpd.GeoDataFrame: GeoDataFrame of edges with an additional column of adjacent node tuples.
     """
     logging.info("Started joining edges and nodes...")
     # list of the edges that are not topographically correct
     incorrect_edges = []
 
     # add node attributes to edges
-    gdf = gpd.sjoin(gdf_edges, gdf_nodes, how="left", op="intersects")
+    gdf = gpd.sjoin(gdf_edges, gdf_nodes, how="left", predicate="intersects")
 
     tuples_df = pd.DataFrame({"node_A": [], "node_B": []})
 
@@ -829,27 +846,29 @@ def join_nodes_edges(
             node_a = [
                 i
                 for i, xy in zip(gdf_nodes.node_fid, gdf_nodes.geometry)
-                if xy.almost_equals(
+                if xy.equals_exact(
                     Point(
                         list(
                             gdf_edges.loc[gdf_edges[id_name] == edge]
                             .iloc[0]
                             .geometry.coords
                         )[0]
-                    )
+                    ),
+                    tolerance=1e-6,
                 )
             ]
             node_b = [
                 i
                 for i, xy in zip(gdf_nodes.node_fid, gdf_nodes.geometry)
-                if xy.almost_equals(
+                if xy.equals_exact(
                     Point(
                         list(
                             gdf_edges.loc[gdf_edges[id_name] == edge]
                             .iloc[0]
                             .geometry.coords
                         )[-1]
-                    )
+                    ),
+                    tolerance=1e-6,
                 )
             ]
             tuples_df = pd.concat(
@@ -972,9 +991,9 @@ def delete_duplicates(all_points: list[Point]) -> list[Point]:
         list[Point]: list with unique points.
     """
     points = [point for point in all_points]
-    uniquepoints = []
+    uniquepoints: list[Point] = []
     for point in points:
-        if not any(p.almost_equals(point) for p in uniquepoints):
+        if not any(p.equals_exact(point, tolerance=1e-6) for p in uniquepoints):
             uniquepoints.append(point)
     return uniquepoints
 
@@ -1090,7 +1109,12 @@ def graph_from_gdf(
 
     # create nodes on the Graph
     for _, row in gdf_nodes.iterrows():
-        c = {node_id: row[node_id], "geometry": row.geometry}
+        c = {
+            node_id: row[node_id],
+            "geometry": row.geometry,
+            "x": row.geometry.x,
+            "y": row.geometry.y,
+        }
         _created_graph.add_node(row[node_id], **c)
 
     # create edges on top of the nodes
@@ -1111,8 +1135,10 @@ def graph_to_gdf(
     save_nodes: bool = False,
     save_edges: bool = True,
     to_save: bool = False,
-):
+    node_geometry: bool = False,
+) -> tuple[gpd.GeoDataFrame | None, gpd.GeoDataFrame | None]:
     """Takes in a networkx graph object and returns edges and nodes as geodataframes
+
     Arguments:
         graph_to_convert (Graph): networkx graph object to be converted
         save_nodes (bool): get the nodes as a geodataframe (False)
@@ -1123,11 +1149,16 @@ def graph_to_gdf(
         edges (GeoDataFrame): contains the edges
         nodes (GeoDataFrame): contains the nodes
     """
+    # Add x and y to nodes if not present
+    graph_to_convert = add_x_y_to_nodes(graph_to_convert)
 
     nodes, edges = None, None
     if save_nodes and save_edges:
         nodes, edges = graph_to_gdfs(
-            graph_to_convert, nodes=save_nodes, edges=save_edges, node_geometry=False
+            graph_to_convert,
+            nodes=save_nodes,
+            edges=save_edges,
+            node_geometry=node_geometry,
         )
         if to_save:
             for df in [edges, nodes]:
@@ -1162,7 +1193,7 @@ def get_nodes_and_edges_from_origin_graph(
         origin_graph = nx.MultiGraph(origin_graph)
 
     # The nodes should have a geometry attribute (perhaps on top of the x and y attributes)
-    _nodes, _edges = graph_to_gdfs(origin_graph, node_geometry=False)
+    _edges, _nodes = graph_to_gdf(origin_graph, save_nodes=True)
 
     dfs = [_edges, _nodes]
     for df in dfs:

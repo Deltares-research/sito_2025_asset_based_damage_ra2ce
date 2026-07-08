@@ -2,7 +2,7 @@
                     GNU GENERAL PUBLIC LICENSE
                       Version 3, 29 June 2007
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -114,16 +114,20 @@ class NxToSnkitNetworkConverter:
         geo_dataframe: gpd.GeoDataFrame,
     ) -> gpd.GeoDataFrame:
         """
-        Check if there is a geometry column in network.nodes.
-        If not, check if both 'x' and 'y' columns are present.
-        If both are present, create Point geometries for each row.
-        If either 'x' or 'y' is missing, raise a ValueError.
+        Ensure the GeoDataFrame has Point geometries for nodes.
 
-        Parameters:
-        gdf (snkit.network.Network): The gdf object containing nodes as a GeoDataFrame.
+        If a geometry column exists, it is used as-is.
+        Otherwise, if both 'x' and 'y' columns are present, Point geometries are created.
+        If neither condition is met, a ValueError is raised.
+
+        Args:
+            geo_dataframe (gpd.GeoDataFrame): The GeoDataFrame containing the nodes.
+
+        Returns:
+            gpd.GeoDataFrame: The GeoDataFrame with a valid geometry column.
 
         Raises:
-        ValueError: If neither geometry column nor both 'x' and 'y' columns are present in network.nodes.
+            ValueError: If neither a geometry column nor both 'x' and 'y' columns are present.
         """
         if "geometry" in geo_dataframe.columns:
             return geo_dataframe
@@ -143,13 +147,13 @@ class NxToSnkitNetworkConverter:
         network: SnkitNetwork,
     ) -> SnkitNetwork:
         """
-        Creates a GEOMETRY attribute for each edge in the graph using the geometries of the nodes.
+        Create a GEOMETRY attribute for each edge in the network using the geometries of the nodes.
 
-        Parameters:
-        G (nx.Graph): The NetworkX graph with nodes having geometries.
+        Args:
+            network (SnkitNetwork): The network containing nodes with geometries.
 
         Returns:
-        nx.Graph: The NetworkX graph with edges having GEOMETRY attributes.
+            SnkitNetwork: The network with edges updated to include GEOMETRY attributes.
         """
 
         def create_linestring(row):

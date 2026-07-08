@@ -3,7 +3,7 @@
                       Version 3, 29 June 2007
 
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -37,7 +37,6 @@ from ra2ce.analysis.losses.traffic_analysis.accumulated_traffic_dataclass import
 class TrafficAnalysisBase(ABC):
     road_network: gpd.GeoDataFrame
     od_table: gpd.GeoDataFrame
-    destinations_names: str
 
     def optimal_route_od_link(
         self,

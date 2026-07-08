@@ -2,7 +2,7 @@
                     GNU GENERAL PUBLIC LICENSE
                       Version 3, 29 June 2007
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -24,6 +24,15 @@ from ra2ce.network.avg_speed.avg_speed import AvgSpeed
 
 class AvgSpeedWriter(Ra2ceExporterProtocol):
     def export(self, export_path: Path, export_data: AvgSpeed) -> None:
+        """Export an `AvgSpeed` object to a CSV file.
+
+        Args:
+            export_path (Path): Path to save the CSV file.
+            export_data (AvgSpeed): The `AvgSpeed` object containing average speed data.
+
+        Returns:
+            None
+        """
         export_path.parent.mkdir(parents=True, exist_ok=True)
         pd.DataFrame(
             {

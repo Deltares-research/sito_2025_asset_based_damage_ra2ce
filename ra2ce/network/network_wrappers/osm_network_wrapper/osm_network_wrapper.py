@@ -2,7 +2,7 @@
                     GNU GENERAL PUBLIC LICENSE
                       Version 3, 29 June 2007
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -81,6 +81,7 @@ class OsmNetworkWrapper(NetworkWrapperProtocol):
         clean graph as the `polygon_graph` property.
 
         Args:
+            config_data (NetworkConfigData): Network data configuration required for OSM download.
             polygon (BaseGeometry): Base polygon from which to generate the graph.
 
         Returns:

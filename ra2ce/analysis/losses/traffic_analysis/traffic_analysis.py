@@ -3,7 +3,7 @@
                       Version 3, 29 June 2007
 
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -33,23 +33,19 @@ from ra2ce.analysis.losses.traffic_analysis.traffic_analysis_base import (
 class TrafficAnalysis(TrafficAnalysisBase):
     road_network: gpd.GeoDataFrame
     od_table: gpd.GeoDataFrame
-    destinations_names: str
 
     def __init__(
         self,
         road_network: gpd.GeoDataFrame,
         od_table: gpd.GeoDataFrame,
-        destination_names: str,
     ) -> None:
         """
         Args:
             road_network (gpd.GeoDataFrame): Geodataframe containing the overall network information.
             od_table (gpd.GeoDataFrame): GeoDataFrame representing the Origins - Destinations table.
-            destination_names (str): Destination nodes.
         """
         self.road_network = road_network
         self.od_table = od_table
-        self.destinations_names = destination_names
 
     def _get_accumulated_traffic_from_node(
         self, o_node: str, total_d_nodes: int

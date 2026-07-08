@@ -3,7 +3,7 @@
                       Version 3, 29 June 2007
 
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -45,85 +45,67 @@ TODO: This whole file should be throughouly tested / redesigned.
 
 
 def read_origin_destination_files(
-    origin_paths: Union[str, list],
-    origin_names: Union[str, list],
-    destination_paths: Union[str, list],
-    destination_names: Union[str, list],
+    origins_path: Path,
+    destinations_path: Path,
     origin_count: Optional[str],
-    crs_: pyproj.CRS,
+    crs: pyproj.CRS,
     category: str,
-    region_paths: Optional[str],
+    regions_path: Optional[str],
     region_var: Optional[str],
 ):
-    """Reads the Origin and Destination point shapefiles and creates one big OD GeoDataFrame.
+    """Read origin and destination point shapefiles and create one OD GeoDataFrame.
+
     Args:
-        origin_paths: The path (as string) or paths (in a list) of the point shapefile(s) used for the locations of the Origins.
-        origin_names: The name(s) of the origins
-        destination_paths: The path (as string) or paths (in a list) of the point shapefile(s) used for the locations of the Destinations.
-        destination_names: The name(s) of the destinations
+        origins_path: The path of the point shapefile used for the locations of the Origins.
+        destinations_path: The path of the point shapefile used for the locations of the Destinations.
         origin_count: The name of the attribute in the origin shapefile that can be used for counting the flow over the network (e.g. nr. of people)
         crs_: The Coordinate Reference System used in the project.
         category: The name of the attribute in the destination shapefile that can be used to categorize the (closest) destination.
-        region_paths:
+        regions_path:
         region_var:
     Returns:
-        od:
+        gpd.GeoDataFrame: A GeoDataFrame containing the combined origin-destination data.
     """
 
-    if region_paths:
-        origin = gpd.GeoDataFrame(columns=["o_id", "geometry", "region"], crs=crs_)
-        region = gpd.read_file(region_paths, engine="pyogrio")
-        region = region[[region_var, "geometry"]]
-    else:
-        origin = gpd.GeoDataFrame(columns=["o_id", "geometry"], crs=crs_)
+    # Origins
+    origins = gpd.GeoDataFrame(columns=["o_id", "geometry"], crs=crs)
 
-    destination_columns = ["d_id", "geometry"]
+    origins_in = gpd.read_file(origins_path, crs=crs, engine="pyogrio")
+    # Check geometry types
+    if not (origins_in.geometry.geom_type == "Point").all():
+        bad_types = origins_in.geometry.geom_type.unique()
+        raise ValueError(f"All geometries must be of type Point. Found: {bad_types}")
+
+    if regions_path:
+        regions = gpd.read_file(regions_path, engine="pyogrio")
+        regions = regions[[region_var, "geometry"]]
+        origins_in = gpd.sjoin(left_df=origins_in, right_df=regions, how="left")
+        origins["region"] = origins_in[region_var]
+        origins["region"].fillna("Not assigned", inplace=True)
+
+    origins["o_id"] = "O_" + origins_in.index.astype(str)
+    origins["geometry"] = origins_in["geometry"]
+
+    if origin_count:
+        origins[origin_count] = origins_in[origin_count]
+
+    # Destinations
+    destinations = gpd.GeoDataFrame(columns=["d_id", "geometry"], crs=crs)
+
+    destinations_in = gpd.read_file(destinations_path, crs=crs, engine="pyogrio")
+
+    # Check geometry types
+    if not (destinations_in.geometry.geom_type == "Point").all():
+        bad_types = destinations_in.geometry.geom_type.unique()
+        raise ValueError(f"All geometries must be of type Point. Found: {bad_types}")
+
+    destinations["d_id"] = "D_" + destinations_in.index.astype(str)
+    destinations["geometry"] = destinations_in["geometry"]
+
     if category:
-        destination_columns.append(category)
+        destinations[category] = destinations_in[category]
 
-    destination = gpd.GeoDataFrame(columns=destination_columns, crs=crs_)
-
-    if isinstance(origin_paths, str):
-        origin_paths = [origin_paths]
-    if isinstance(destination_paths, str):
-        destination_paths = [destination_paths]
-    if isinstance(origin_names, str):
-        origin_names = [origin_names]
-    if isinstance(destination_names, str):
-        destination_names = [destination_names]
-
-    for op, on in zip(origin_paths, origin_names):
-        origin_tmp = gpd.read_file(op, crs=crs_, engine="pyogrio")
-
-        if region_paths:
-            origin_tmp = gpd.sjoin(left_df=origin_tmp, right_df=region, how="left")
-            origin_tmp["region"] = origin_tmp[region_var]
-            origin_new = origin_tmp[["region", "geometry"]]
-            origin_new["region"].fillna("Not assigned", inplace=True)
-        else:
-            origin_new = origin_tmp[["geometry"]]
-
-        if origin_count:
-            origin_new[origin_count] = origin_tmp[origin_count]
-
-        origin_new["o_id"] = on + "_" + origin_new.index.astype(str)
-        origin_new.crs = origin.crs
-        origin = gpd.GeoDataFrame(pd.concat([origin, origin_new], ignore_index=True))
-
-    destination_columns_add = ["geometry"]
-    if category:
-        destination_columns_add.append(category)
-
-    for dp, dn in zip(destination_paths, destination_names):
-        destination_new = gpd.read_file(dp, crs=crs_, engine="pyogrio")
-        destination_new = destination_new[destination_columns_add]
-        destination_new["d_id"] = dn + "_" + destination_new.index.astype(str)
-        destination_new.crs = destination.crs
-        destination = gpd.GeoDataFrame(
-            pd.concat([destination, destination_new], ignore_index=True)
-        )
-
-    od = pd.concat([origin, destination], sort=False)
+    od = pd.concat([origins, destinations], sort=False)
 
     return od
 
@@ -187,8 +169,8 @@ def update_edges_with_new_node(
     # edges added to the graph.
     cnt = 0
 
-    if Point(graph.nodes[node_a]["geometry"].coords[0]).almost_equals(
-        Point(line_b.coords[-1])
+    if Point(graph.nodes[node_a]["geometry"].coords[0]).equals_exact(
+        Point(line_b.coords[-1]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_b != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -213,8 +195,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_b]["geometry"].coords[0]).almost_equals(
-        Point(line_b.coords[0])
+    if Point(graph.nodes[node_b]["geometry"].coords[0]).equals_exact(
+        Point(line_b.coords[0]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_b != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -241,8 +223,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_a]["geometry"].coords[0]).almost_equals(
-        Point(line_b.coords[0])
+    if Point(graph.nodes[node_a]["geometry"].coords[0]).equals_exact(
+        Point(line_b.coords[0]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_b != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -267,8 +249,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_b]["geometry"].coords[0]).almost_equals(
-        Point(line_b.coords[-1])
+    if Point(graph.nodes[node_b]["geometry"].coords[0]).equals_exact(
+        Point(line_b.coords[-1]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_b != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -295,8 +277,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_b]["geometry"].coords[0]).almost_equals(
-        Point(line_a.coords[0])
+    if Point(graph.nodes[node_b]["geometry"].coords[0]).equals_exact(
+        Point(line_a.coords[0]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_a != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -323,8 +305,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_a]["geometry"].coords[0]).almost_equals(
-        Point(line_a.coords[-1])
+    if Point(graph.nodes[node_a]["geometry"].coords[0]).equals_exact(
+        Point(line_a.coords[-1]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_a != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -349,8 +331,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_b]["geometry"].coords[0]).almost_equals(
-        Point(line_a.coords[-1])
+    if Point(graph.nodes[node_b]["geometry"].coords[0]).equals_exact(
+        Point(line_a.coords[-1]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_a != graph.edges[(node_a, new_node_id, 0)]["geometry"]:
@@ -377,8 +359,8 @@ def update_edges_with_new_node(
 
         cnt += 1
 
-    if Point(graph.nodes[node_a]["geometry"].coords[0]).almost_equals(
-        Point(line_a.coords[0])
+    if Point(graph.nodes[node_a]["geometry"].coords[0]).equals_exact(
+        Point(line_a.coords[0]), tolerance=1e-6
     ):
         if node_a == node_b and graph.has_edge(*(node_a, new_node_id, 0)):
             if line_a != graph.edges[(node_a, new_node_id, 0)]["geometry"]:

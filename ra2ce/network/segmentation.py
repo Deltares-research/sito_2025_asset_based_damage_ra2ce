@@ -3,7 +3,7 @@
                       Version 3, 29 June 2007
 
     Risk Assessment and Adaptation for Critical Infrastructure (RA2CE).
-    Copyright (C) 2023 Stichting Deltares
+    Copyright (C) 2023-2026 Stichting Deltares
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -278,18 +278,15 @@ class Segmentation:  # Todo: more naturally, this would be METHOD of the network
     def generate_link_tables(
         self,
     ) -> tuple[dict[int, Union[int, list[int]]], dict[int, int]]:
-        """
-        Generate mappings from a GeoDataFrame and two dictionaries.
+        """Generate mappings between RFIDs and split IDs.
 
-        Args:
-        - dicts: Tuple of two dictionaries.
-            - First dictionary maps rfid to rfid_c (integer or list of integers).
-            - Second dictionary maps rfid_c to rfid (integer).
+        The first dictionary maps an ``rfid`` to one or more ``splt_id`` values.
+        The second dictionary maps each ``splt_id`` back to its corresponding ``rfid``.
 
         Returns:
-        - A tuple containing two dictionaries:
-            - The first dictionary maps rfid to splt_id or list of splt_id.
-            - The second dictionary maps splt_id to rfid.
+            tuple[dict[int, Union[int, list[int]]], dict[int, int]]:
+                - Dictionary mapping ``rfid`` to one or more ``splt_id``.
+                - Dictionary mapping ``splt_id`` back to ``rfid``.
         """
         # Initialize result dictionaries
         splt_id_to_rfid = {}
