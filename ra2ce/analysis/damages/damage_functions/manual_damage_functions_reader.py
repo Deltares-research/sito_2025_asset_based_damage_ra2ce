@@ -35,7 +35,9 @@ class ManualDamageFunctionsReader(FileReaderProtocol):
     Reader class for the manual damage functions.
     """
 
-    def read(self, file_path: Path, allowed_asset_types: Optional[set[str]]) -> ManualDamageFunctions:
+    def read(
+        self, file_path: Path, allowed_asset_types: Optional[set[str]] = None
+    ) -> ManualDamageFunctions:
         """
         Read the manual damage functions from the given folder.
         The folder should contain subfolders with the damage functions.
@@ -54,7 +56,9 @@ class ManualDamageFunctionsReader(FileReaderProtocol):
             if subfolder.is_dir()
         }
 
-        # Read the damage functions from the subfolders
+        # Read all damage functions from the subfolders.
+        # Asset filtering is intentionally not applied at load-time because
+        # non-asset curves (e.g. standard cross-sections) must remain available.
         return ManualDamageFunctions(
             damage_functions={
                 _name: DamageFunctionByRoadTypeByLane.from_input_folder(_name, _path, allowed_asset_types)

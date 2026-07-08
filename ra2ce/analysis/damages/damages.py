@@ -296,9 +296,13 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         bridge_norm = bridge.map(_BRIDGE_MAP)  # -> e.g., "viaduct", "bridge", ...
         tunnel_norm = tunnel.map(_TUNNEL_MAP)  # -> e.g., "culvert", "tunnel", ...
 
+        loaded_assets = self._assets_from_damage_functions()
+        if not loaded_assets:
+            return
+
         # Only apply where the normalized label is recognized AND exists in the loaded damage functions
-        m_bridge = bridge.isin(bridge_keys)
-        m_tunnel = tunnel.isin(tunnel_keys)
+        m_bridge = bridge.isin(bridge_keys) & bridge_norm.isin(loaded_assets)
+        m_tunnel = tunnel.isin(tunnel_keys) & tunnel_norm.isin(loaded_assets)
 
         out = df["highway"].astype("string").copy()
 

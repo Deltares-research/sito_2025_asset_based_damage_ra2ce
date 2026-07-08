@@ -221,6 +221,21 @@ class DamageNetworkBase(ABC):
                     asset_type=asset_type,
                 )
 
+        # Keep the per-folder outputs for comparison, and also provide one
+        # effective manual-damage column per event that combines the applicable
+        # road and asset curves row-wise.
+        for event in events:
+            event_damage_cols = [
+                col for col in df.columns if col.startswith(f"dam_{event}_")
+            ]
+            if not event_damage_cols:
+                continue
+
+            df[f"dam_{event}_{DamageCurveEnum.MAN.name}"] = df[event_damage_cols].sum(
+                axis=1,
+                min_count=1,
+            )
+
         # Only transfer the final results to the damage column
         dam_cols = [c for c in df.columns if c.startswith("dam_")]
         self.gdf[dam_cols] = df[dam_cols]

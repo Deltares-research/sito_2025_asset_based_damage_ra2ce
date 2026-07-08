@@ -129,7 +129,10 @@ class DamageFunctionByRoadTypeByLane:
         damage_fraction.create_interpolator()
 
         return cls(
-            max_damage=max_damage, damage_fraction=damage_fraction, name=name, allowed_asset_types=allowed_asset_types
+            max_damage=max_damage,
+            damage_fraction=damage_fraction,
+            name=name,
+            allowed_asset_types=set(allowed_asset_types or set()),
         )
 
     @staticmethod
