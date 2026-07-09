@@ -34,7 +34,6 @@ from ra2ce.analysis.damages.damage_functions.manual_damage_functions_reader impo
 )
 from ra2ce.analysis.damages.damages_result_wrapper import DamagesResultWrapper
 from ra2ce.analysis.damages.supported_assets import (
-    ASSET_ALIASES,
     BRIDGE_ASSET_MAP,
     CANONICAL_ASSET_TYPES,
     TUNNEL_ASSET_MAP,
@@ -83,7 +82,6 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         # Asset-based processing that may rely on allowed_asset_types
         if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSETS:
-            self._validate_for_damages_with_asset()
             self._rename_highway_by_assets()
 
     def _prepare_road_gdf(self) -> None:
@@ -162,23 +160,6 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         return normalized
 
-    def _validate_for_damages_with_asset(self) -> None:
-        """
-        Validation for the 'DAMAGES_WITH_ASSET' analysis mode.
-
-        Requirements:
-          - self.analysis.damage_curve == DamageCurveEnum.MAN
-          - self.analysis.asset_damage_curve_paths is provided and is dict[str, Path]
-          - Keys of asset_damage_curve_paths ∈ {'bridge','viaduct','tunnel'} (case-insensitive)
-        """
-        # 1) damage_curve must be MAN
-        damage_curve = getattr(self.analysis, "damage_curve", None)
-        if damage_curve != DamageCurveEnum.MAN:
-            raise ValueError(
-                "When analysis == DAMAGES_WITH_ASSET, 'damage_curve' must be DamageCurveEnum.MAN "
-                f"(got {damage_curve.name})."
-            )
-
     def _assets_from_damage_functions(self) -> set[str]:
         """
         Collect canonical asset keys we have manual damage functions for.
@@ -204,8 +185,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
           - bridge/tunnel columns contain a recognized value in BRIDGE_ASSET_MAP/TUNNEL_ASSET_MAP, and
           - that canonical asset is present among the loaded manual damage functions.
 
-        Precedence: bridge types > tunnel types.
-        Otherwise, keep the existing 'highway' road class.
+        Otherwise, keep the existing 'highway' class.
         """
         df = self.road_gdf
 
@@ -267,7 +247,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         # Choose between event or return period based analysis
         if self.analysis.event_type == EventTypeEnum.EVENT:
             event_gdf = DamageNetworkEvents(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.allowed_asset_types
+                road_gdf, val_cols, self.analysis.representative_damage_percentage
             )
             event_gdf.main(
                 damage_function=damage_function,
@@ -278,7 +258,7 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
 
         elif self.analysis.event_type == EventTypeEnum.RETURN_PERIOD:
             return_period_gdf = DamageNetworkReturnPeriods(
-                road_gdf, val_cols, self.analysis.representative_damage_percentage, self.allowed_asset_types
+                road_gdf, val_cols, self.analysis.representative_damage_percentage
             )
             return_period_gdf.main(
                 damage_function=damage_function,

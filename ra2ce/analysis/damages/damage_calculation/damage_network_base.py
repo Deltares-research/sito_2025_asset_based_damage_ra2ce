@@ -49,7 +49,6 @@ class DamageNetworkBase(ABC):
         road_gdf: GeoDataFrame,
         val_cols: list[str],
         representative_damage_percentage: float,
-        allowed_assets: Optional[set[str]],
     ):
         """Construct the Data"""
         self.val_cols = val_cols
@@ -57,7 +56,6 @@ class DamageNetworkBase(ABC):
         # set of hazard info per event
         self.stats = set([x.split("_")[-1] for x in val_cols])
         self.representative_damage_percentage = representative_damage_percentage
-        self.allowed_assets = allowed_assets
 
         # TODO: also track the damage cols after the dam calculation, that is useful for the risk calc. module
         # TODO: also create constructors of the children of this class
@@ -222,7 +220,7 @@ class DamageNetworkBase(ABC):
                 )
 
         # Keep the per-folder outputs for comparison, and also provide one
-        # effective manual-damage column per event that combines the applicable
+        # effective manual-damage column per event that combines (understand sums) the applicable
         # road and asset curves row-wise.
         for event in events:
             event_damage_cols = [
@@ -240,7 +238,7 @@ class DamageNetworkBase(ABC):
         dam_cols = [c for c in df.columns if c.startswith("dam_")]
         self.gdf[dam_cols] = df[dam_cols]
         logging.info(
-            "Damage calculation with the manual damage functions was succesfull."
+            "Damage calculation with the manual damage functions was successful."
         )
 
     def calculate_damage_HZ(self, events: list[str]) -> None:
