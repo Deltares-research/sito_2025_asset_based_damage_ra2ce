@@ -3,7 +3,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 215573156,True,2,A79,motorway,100,False,31.186,2,2,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 254696086,True,2,A2,motorway,100,False,43.429,3,3,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 254696086,True,2,A2,motorway,100,False,26.171,4,3,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
-720205318,True,1,A79,motorway_link,80,False,54.061,5,99,80,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.1666666666666667,1.0,motorway,1,5947.0,6938.0,5947.0,6938.0
+720205318,True,1,A79,motorway_link,80,False,54.061,5,99,80,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.1666666666666667,1.0,motorway,1,2757.0,3217.0,2757.0,3217.0
 72400805,True,2,N2,trunk,80,False,46.783,6,4,80,0.001,None,None,None,,,,1.0,,,,1.0,trunk,2,,,,
 7125689,True,2,A2,motorway,100,False,20.182,7,3,100,0.0,yes,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,2,12109.0,12109.0,12109.0,12109.0
 294242089,True,1,N2,trunk_link,80,False,142.662,8,93,80,0.002,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
@@ -20,25 +20,25 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6779728,True,1,A79,motorway_link,100,False,22.482,19,6,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 337060729,True,2,A2,motorway,100,False,31.087,20,3,100,0.0,viaduct,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6779729,True,2,A79,motorway,100,False,62.516,21,10,100,0.001,None,None,None,1.0,3.0,1.6363636363636365,1.0,1.0,4.0,2.357142857142857,1.0,motorway,2,12276.0,17683.0,12276.0,17683.0
-6779728,True,1,A79,motorway_link,100,False,14.53,22,6,100,0.0,None,None,None,2.0,2.0,2.0,1.0,2.0,2.0,2.0,1.0,motorway,1,3197.0,3197.0,3197.0,3197.0
+6779728,True,1,A79,motorway_link,100,False,14.53,22,6,100,0.0,None,None,None,2.0,2.0,2.0,1.0,2.0,2.0,2.0,1.0,motorway,1,1482.0,1482.0,1482.0,1482.0
 337017270,True,2,A79,motorway,100,False,42.097,23,85,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6779692,True,3,None,primary,50,False,13.256,24,5,50,0.0,None,Nieuwe Limmelderweg,None,4.0,5.0,4.8,1.0,4.0,5.0,4.8,1.0,primary,3,83.0,83.0,83.0,83.0
-6779728,True,1,A79,motorway_link,100,False,24.386,25,6,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,2682.0,,2682.0
+6779728,True,1,A79,motorway_link,100,False,24.386,25,6,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1244.0,,1244.0
 6779729,True,2,A79,motorway,100,False,56.235,26,10,100,0.001,None,None,None,1.0,3.0,1.5625,1.0,1.0,4.0,2.033333333333333,1.0,motorway,2,10544.0,13721.0,10544.0,13721.0
 241265004,True,1,None,motorway_link,50,False,8.426,27,7,50,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 587459368,True,2,None,primary,50,False,12.114,28,8,50,0.0,None,Nieuwe Limmelderweg,None,,,,1.0,,,,1.0,primary,2,,,,
 337017270,True,2,A79,motorway,100,False,58.082,29,85,100,0.001,None,None,None,,,,1.0,1.0,3.0,1.4814814814814814,1.0,motorway,2,,10326.0,,10326.0
-6779728,True,1,A79,motorway_link,100,False,40.842,30,6,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,1.0,2.0,1.3333333333333333,1.0,motorway,1,5990.0,5990.0,5990.0,5990.0
+6779728,True,1,A79,motorway_link,100,False,40.842,30,6,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,1.0,2.0,1.3333333333333333,1.0,motorway,1,2777.0,2777.0,2777.0,2777.0
 6779729,True,2,A79,motorway,100,False,38.546,31,10,100,0.0,None,None,None,1.0,3.0,2.074074074074074,1.0,3.0,4.0,3.9285714285714284,1.0,motorway,2,9594.0,18172.0,9594.0,18172.0
 587459362,True,2,A79,motorway_link,100,False,65.719,32,11,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 337017270,True,2,A79,motorway,100,False,69.622,33,85,100,0.001,None,None,None,1.0,1.0,1.0,1.0,2.0,4.0,3.4081632653061225,1.0,motorway,2,8355.0,28474.0,8355.0,28474.0
-6779728,True,1,A79,motorway_link,100,False,36.612,34,6,100,0.0,None,None,None,1.0,3.0,1.6666666666666667,1.0,4.0,4.0,4.0,1.0,motorway,1,6712.0,16109.0,6712.0,16109.0
+6779728,True,1,A79,motorway_link,100,False,36.612,34,6,100,0.0,None,None,None,1.0,3.0,1.6666666666666667,1.0,4.0,4.0,4.0,1.0,motorway,1,3112.0,7469.0,3112.0,7469.0
 337060733,True,3,A2,motorway,100,False,23.066,35,90,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
-6779730,True,1,A79,motorway_link,100,False,36.721,36,11,100,0.0,None,None,None,1.0,5.0,4.44,1.0,4.0,5.0,4.84,1.0,motorway,1,17935.0,19550.0,17935.0,19550.0
+6779730,True,1,A79,motorway_link,100,False,36.721,36,11,100,0.0,None,None,None,1.0,5.0,4.44,1.0,4.0,5.0,4.84,1.0,motorway,1,8315.0,9064.0,8315.0,9064.0
 6779729,True,2,A79,motorway,100,False,48.831,37,10,100,0.0,None,None,None,1.0,3.0,1.44,1.0,3.0,5.0,4.085714285714285,1.0,motorway,2,8438.0,23941.0,8438.0,23941.0
 6779723,True,3,A79,motorway,100,False,63.121,38,9,100,0.001,None,None,None,2.0,4.0,3.3777777777777778,1.0,5.0,5.0,5.0,1.0,motorway,3,27717.0,41029.0,27717.0,41029.0
 6779729,True,2,A79,motorway,100,False,73.26,39,10,100,0.001,None,None,None,,,,1.0,2.0,5.0,3.480769230769231,1.0,motorway,2,,30600.0,,30600.0
-6779730,True,1,A79,motorway_link,100,False,50.544,40,11,100,0.001,None,None,None,,,,1.0,2.0,5.0,3.75,1.0,motorway,1,,20849.0,,20849.0
+6779730,True,1,A79,motorway_link,100,False,50.544,40,11,100,0.001,None,None,None,,,,1.0,2.0,5.0,3.75,1.0,motorway,1,,9667.0,,9667.0
 178160302,False,2,None,secondary,50,False,21.947,41,104,50,0.0,None,Ambyerweg,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,26.0,26.0,26.0,26.0
 459840416,False,2,None,secondary,50,True,4.47,42,13,50,0.0,None,Ambyerweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 1094518829,True,1,A79,motorway_link,100,False,79.494,43,58,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -150,7 +150,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6779093,True,1,A79,motorway_link,60,False,12.362,149,18,60,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6778696,True,1,A79,motorway_link,130,False,15.064,150,113,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 435551043,True,1,A79,motorway_link,100,False,27.756,151,72,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-435551043,True,1,A79,motorway_link,100,False,240.071,152,72,100,0.002,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,26408.0,,26408.0
+435551043,True,1,A79,motorway_link,100,False,240.071,152,72,100,0.002,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,12244.0,,12244.0
 153020405,True,2,A79,motorway,100,False,165.801,153,124,100,0.002,None,None,None,1.0,3.0,1.3043478260869565,1.0,1.0,3.0,1.32,1.0,motorway,2,25951.0,26263.0,25951.0,26263.0
 435551043,True,1,A79,motorway_link,100,False,6.684,154,72,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6779089,True,2,A79,motorway,100,False,26.055,155,9,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,2,,3127.0,,3127.0
@@ -240,17 +240,17 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1095936798,True,1,None,secondary,50,False,2.211,239,23,50,0.0,None,Knooppunt Hoolhuis,roundabout,2.0,2.0,2.0,1.0,2.0,5.0,3.6666666666666665,1.0,secondary,1,5.0,9.0,5.0,9.0
 1095936816,True,1,None,secondary,50,False,6.107,240,24,50,0.0,None,Bunderstraat,None,2.0,4.0,2.75,1.0,4.0,5.0,4.8,1.0,secondary,1,18.0,32.0,18.0,32.0
 1095936798,True,1,None,secondary,50,False,2.211,241,23,50,0.0,None,Knooppunt Hoolhuis,roundabout,2.0,3.0,2.5,1.0,5.0,5.0,5.0,1.0,secondary,1,6.0,12.0,6.0,12.0
-6779607,True,1,A2,motorway_link,50,False,7.226,242,25,50,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,3974.0,3974.0,3974.0,3974.0
+6779607,True,1,A2,motorway_link,50,False,7.226,242,25,50,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1843.0,1843.0,1843.0,1843.0
 6779710,False,3,None,secondary,50,True,16.189,243,26,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,3,105.0,105.0,105.0,105.0
 1095936817,True,1,None,secondary,50,False,6.285,244,27,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,1,35.0,35.0,35.0,35.0
 6779736,True,2,A2,motorway,100,False,47.361,245,21,100,0.0,yes,None,None,2.0,5.0,4.863636363636363,1.0,4.0,5.0,4.956521739130435,1.0,motorway,2,27642.0,28169.0,27642.0,28169.0
 6779738,True,2,A2,motorway,100,False,61.285,246,21,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
-6779607,True,1,A2,motorway_link,50,False,6.106,247,25,50,0.0,None,None,None,4.0,5.0,4.6,1.0,5.0,5.0,5.0,1.0,motorway,1,3090.0,3358.0,3090.0,3358.0
+6779607,True,1,A2,motorway_link,50,False,6.106,247,25,50,0.0,None,None,None,4.0,5.0,4.6,1.0,5.0,5.0,5.0,1.0,motorway,1,1432.0,1557.0,1432.0,1557.0
 6779710,False,3,None,secondary,50,False,16.189,248,63,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,3,105.0,105.0,105.0,105.0
 6779710,False,3,None,secondary,50,True,37.375,249,26,50,0.001,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,3,243.0,243.0,243.0,243.0
 27195291,True,2,A2,motorway,100,False,481.888,250,31,100,0.005,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,57827.0,57827.0,57827.0,57827.0
 509397985,True,2,None,secondary,50,False,17.105,251,112,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,103.0,103.0,103.0,103.0
-1333271499,True,1,A2,motorway_link,130,False,84.093,252,25,130,0.001,None,None,None,2.0,2.0,2.0,1.0,1.0,5.0,4.0,1.0,motorway,1,18500.0,37001.0,18500.0,37001.0
+1333271499,True,1,A2,motorway_link,130,False,84.093,252,25,130,0.001,None,None,None,2.0,2.0,2.0,1.0,1.0,5.0,4.0,1.0,motorway,1,8577.0,17155.0,8577.0,17155.0
 509397985,True,2,None,secondary,50,False,25.7,253,112,50,0.001,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,154.0,154.0,154.0,154.0
 6779737,True,2,A2,motorway,100,False,51.172,254,31,100,0.001,yes,None,None,3.0,5.0,4.75,1.0,3.0,5.0,4.909090909090909,1.0,motorway,2,29168.0,30145.0,29168.0,30145.0
 1333271499,True,1,A2,motorway_link,130,False,39.255,255,25,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -270,9 +270,9 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1118066824,False,2,None,secondary,50,False,10.158,269,30,50,0.0,None,Prinses Ireneweg,None,1.0,1.0,1.0,1.0,4.0,5.0,4.875,1.0,secondary,2,12.0,59.0,12.0,59.0
 205506852,True,2,None,secondary,50,False,2.417,270,76,50,0.0,None,None,roundabout,,,,1.0,4.0,4.0,4.0,1.0,secondary,2,,12.0,,12.0
 205506852,True,2,None,secondary,50,False,2.321,271,76,50,0.0,None,None,roundabout,,,,1.0,1.0,1.0,1.0,1.0,secondary,2,,3.0,,3.0
-1333271497,True,1,A2,motorway_link,80,False,9.009,272,32,80,0.0,None,None,None,2.0,3.0,2.4285714285714284,1.0,5.0,5.0,5.0,1.0,motorway,1,2407.0,4955.0,2407.0,4955.0
+1333271497,True,1,A2,motorway_link,80,False,9.009,272,32,80,0.0,None,None,None,2.0,3.0,2.4285714285714284,1.0,5.0,5.0,5.0,1.0,motorway,1,1116.0,2297.0,1116.0,2297.0
 6777005,True,2,A2,motorway,100,False,28.537,273,31,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
-1333271497,True,1,A2,motorway_link,80,False,9.397,274,32,80,0.0,None,None,None,3.0,3.0,3.0,1.0,4.0,5.0,4.4,1.0,motorway,1,3101.0,4548.0,3101.0,4548.0
+1333271497,True,1,A2,motorway_link,80,False,9.397,274,32,80,0.0,None,None,None,3.0,3.0,3.0,1.0,4.0,5.0,4.4,1.0,motorway,1,1438.0,2109.0,1438.0,2109.0
 6779613,False,2,None,secondary,50,False,46.269,275,30,50,0.001,None,Prinses Ireneweg,None,1.0,3.0,1.44,1.0,1.0,4.0,2.375,1.0,secondary,2,80.0,132.0,80.0,132.0
 1118066824,False,2,None,secondary,50,True,23.876,276,81,50,0.0,None,Prinses Ireneweg,None,1.0,2.0,1.1428571428571428,1.0,4.0,5.0,4.411764705882353,1.0,secondary,2,33.0,126.0,33.0,126.0
 6779613,False,2,None,secondary,50,False,21.873,277,30,50,0.0,None,Prinses Ireneweg,None,1.0,1.0,1.0,1.0,1.0,2.0,1.5454545454545454,1.0,secondary,2,26.0,41.0,26.0,41.0
@@ -497,10 +497,10 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1330623101,False,2,None,secondary,50,True,7.45,496,81,50,0.0,None,Processieweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 328353812,False,2,None,secondary,50,True,15.256,497,30,50,0.0,None,Processieweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 1330623101,False,2,None,secondary,50,True,21.219,498,81,50,0.0,None,Processieweg,None,,,,1.0,,,,1.0,secondary,2,,,,
-6777651,True,1,A2,motorway_link,130,False,28.055,499,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.4,1.0,motorway,1,3086.0,4320.0,3086.0,4320.0
-6777651,True,1,A2,motorway_link,130,False,9.785,500,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1076.0,,1076.0
+6777651,True,1,A2,motorway_link,130,False,28.055,499,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.4,1.0,motorway,1,1431.0,2003.0,1431.0,2003.0
+6777651,True,1,A2,motorway_link,130,False,9.785,500,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,499.0,,499.0
 6777633,False,5,None,secondary,80,False,11.43,501,38,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,5,,,,
-332731577,True,1,A2,motorway_link,130,False,22.322,502,39,130,0.0,None,None,None,1.0,4.0,2.7,1.0,1.0,4.0,2.909090909090909,1.0,motorway,1,6630.0,7143.0,6630.0,7143.0
+332731577,True,1,A2,motorway_link,130,False,22.322,502,39,130,0.0,None,None,None,1.0,4.0,2.7,1.0,1.0,4.0,2.909090909090909,1.0,motorway,1,3074.0,3312.0,3074.0,3312.0
 6777633,False,5,None,secondary,80,True,11.43,503,40,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,5,,,,
 447136707,False,5,None,secondary,80,False,26.964,504,41,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,5,,,,
 6777651,True,1,A2,motorway_link,130,False,14.606,505,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -542,10 +542,10 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1095938425,False,4,None,secondary,80,True,10.277,541,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 6777611,False,2,None,secondary,50,False,57.138,542,81,50,0.001,None,Hussenbergstraat,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,secondary,2,69.0,171.0,69.0,171.0
 1041989634,False,2,None,secondary,50,True,17.569,543,30,50,0.0,None,Hussenbergstraat,None,,,,1.0,,,,1.0,secondary,2,,,,
-72369768,True,1,A2,motorway_link,100,False,17.661,544,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1943.0,,1943.0
+72369768,True,1,A2,motorway_link,100,False,17.661,544,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,901.0,,901.0
 6777601,False,2,None,secondary,60,False,36.729,545,82,60,0.001,None,Cruisboomveld,None,1.0,3.0,1.5454545454545454,1.0,1.0,4.0,2.4210526315789473,1.0,secondary,2,68.0,107.0,68.0,107.0
 6777601,False,2,None,secondary,60,True,12.998,546,47,60,0.0,None,Cruisboomveld,None,,,,1.0,1.0,3.0,2.0,1.0,secondary,2,,31.0,,31.0
-72369768,True,1,A2,motorway_link,100,False,18.832,547,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,2072.0,2072.0,2072.0,2072.0
+72369768,True,1,A2,motorway_link,100,False,18.832,547,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,960.0,960.0,960.0,960.0
 1095938425,False,4,None,secondary,80,False,12.06,548,44,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 1095938425,False,4,None,secondary,80,True,6.741,549,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 332731577,True,1,A2,motorway_link,130,False,7.63,550,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -556,51 +556,51 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 332731577,True,1,A2,motorway_link,130,False,6.029,555,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777602,False,2,None,secondary,50,False,23.021,556,81,50,0.0,None,Hussenbergstraat,None,1.0,2.0,1.1428571428571428,1.0,4.0,5.0,4.5,1.0,secondary,2,32.0,124.0,32.0,124.0
 6777611,False,2,None,secondary,50,True,57.138,557,30,50,0.001,None,Hussenbergstraat,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,secondary,2,69.0,171.0,69.0,171.0
-72369768,True,1,A2,motorway_link,100,False,13.405,558,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,,2458.0,,2458.0
+72369768,True,1,A2,motorway_link,100,False,13.405,558,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,,1139.0,,1139.0
 6777601,False,2,None,secondary,60,False,37.246,559,82,60,0.001,None,Cruisboomveld,None,1.0,5.0,2.7037037037037037,1.0,1.0,5.0,3.111111111111111,1.0,secondary,2,121.0,139.0,121.0,139.0
 6777601,False,2,None,secondary,60,True,41.739,560,47,60,0.001,None,Cruisboomveld,None,1.0,4.0,1.8333333333333333,1.0,1.0,4.0,2.1923076923076925,1.0,secondary,2,92.0,110.0,92.0,110.0
 72369768,True,1,A2,motorway_link,100,False,6.039,561,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 436425510,True,3,A2,motorway_link,100,False,68.45,562,50,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 332731577,True,1,A2,motorway_link,130,False,7.563,563,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-72369768,True,1,A2,motorway_link,100,False,7.201,564,109,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,3.0,4.0,3.5,1.0,motorway,1,1056.0,2772.0,1056.0,2772.0
+72369768,True,1,A2,motorway_link,100,False,7.201,564,109,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,3.0,4.0,3.5,1.0,motorway,1,490.0,1285.0,490.0,1285.0
 947375147,True,2,A2,motorway,100,False,80.914,565,49,100,0.001,None,None,None,,,,1.0,1.0,2.0,1.368421052631579,1.0,motorway,2,,13287.0,,13287.0
 6777602,False,2,None,secondary,50,False,22.7,566,81,50,0.0,None,Hussenbergstraat,None,1.0,3.0,2.1176470588235294,1.0,5.0,5.0,5.0,1.0,secondary,2,58.0,136.0,58.0,136.0
 6777602,False,2,None,secondary,50,True,23.021,567,30,50,0.0,None,Hussenbergstraat,None,1.0,2.0,1.1428571428571428,1.0,4.0,5.0,4.5,1.0,secondary,2,32.0,124.0,32.0,124.0
 72369768,True,1,A2,motorway_link,100,False,6.001,568,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 1095938422,False,2,None,secondary,80,False,12.022,569,44,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,2,,,,
 1095938422,False,2,None,secondary,80,True,12.465,570,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,2,,,,
-72369768,True,1,A2,motorway_link,100,False,6.932,571,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,motorway,1,763.0,1906.0,763.0,1906.0
-72369768,True,1,A2,motorway_link,100,False,6.094,572,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,670.0,670.0,670.0,670.0
+72369768,True,1,A2,motorway_link,100,False,6.932,571,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,motorway,1,354.0,884.0,354.0,884.0
+72369768,True,1,A2,motorway_link,100,False,6.094,572,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,311.0,311.0,311.0,311.0
 6777602,False,2,None,secondary,50,False,50.313,573,81,50,0.001,None,Hussenbergstraat,None,2.0,4.0,2.9444444444444446,1.0,5.0,5.0,5.0,1.0,secondary,2,178.0,302.0,178.0,302.0
 6777602,False,2,None,secondary,50,True,22.7,574,30,50,0.0,None,Hussenbergstraat,None,1.0,3.0,2.1176470588235294,1.0,5.0,5.0,5.0,1.0,secondary,2,58.0,136.0,58.0,136.0
 72369768,True,1,A2,motorway_link,100,False,5.31,575,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-72369768,True,1,A2,motorway_link,100,False,7.335,576,109,100,0.0,None,None,None,1.0,2.0,1.25,1.0,2.0,4.0,2.8,1.0,motorway,1,1009.0,2259.0,1009.0,2259.0
-72369768,True,1,A2,motorway_link,100,False,6.639,577,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,3.0,3.0,3.0,1.0,motorway,1,730.0,2191.0,730.0,2191.0
-72369768,True,1,A2,motorway_link,100,False,6.016,578,109,100,0.0,None,None,None,1.0,2.0,1.6,1.0,2.0,4.0,3.2,1.0,motorway,1,1059.0,2118.0,1059.0,2118.0
+72369768,True,1,A2,motorway_link,100,False,7.335,576,109,100,0.0,None,None,None,1.0,2.0,1.25,1.0,2.0,4.0,2.8,1.0,motorway,1,468.0,1047.0,468.0,1047.0
+72369768,True,1,A2,motorway_link,100,False,6.639,577,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,3.0,3.0,3.0,1.0,motorway,1,339.0,1016.0,339.0,1016.0
+72369768,True,1,A2,motorway_link,100,False,6.016,578,109,100,0.0,None,None,None,1.0,2.0,1.6,1.0,2.0,4.0,3.2,1.0,motorway,1,491.0,982.0,491.0,982.0
 436425510,True,3,A2,motorway_link,100,False,8.725,579,50,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 6777563,False,3,None,secondary,80,False,6.827,580,44,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,3,,,,
 6777563,False,3,None,secondary,80,True,12.044,581,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,3,,,,
 328352372,False,2,None,secondary,80,True,39.442,582,30,80,0.0,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
 328353812,False,2,None,secondary,50,False,39.09,583,81,50,0.001,None,Processieweg,None,,,,1.0,,,,1.0,secondary,2,,,,
-436425510,True,3,A2,motorway_link,100,False,17.56,584,50,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,3,,2283.0,,2283.0
+436425510,True,3,A2,motorway_link,100,False,17.56,584,50,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,3,,931.0,,931.0
 6777602,False,2,None,secondary,50,False,28.073,585,81,50,0.001,None,Hussenbergstraat,None,2.0,4.0,2.9,1.0,4.0,5.0,4.95,1.0,secondary,2,98.0,167.0,98.0,167.0
 6777602,False,2,None,secondary,50,True,50.313,586,30,50,0.001,None,Hussenbergstraat,None,2.0,4.0,2.9444444444444446,1.0,5.0,5.0,5.0,1.0,secondary,2,178.0,302.0,178.0,302.0
 6777601,False,2,None,secondary,60,False,23.587,587,82,60,0.0,None,Cruisboomveld,None,1.0,1.0,1.0,1.0,1.0,2.0,1.3333333333333333,1.0,secondary,2,28.0,38.0,28.0,38.0
 6777601,False,2,None,secondary,60,True,27.642,588,47,60,0.0,None,Cruisboomveld,None,1.0,2.0,1.1666666666666667,1.0,1.0,2.0,1.2857142857142858,1.0,secondary,2,39.0,43.0,39.0,43.0
 6777563,False,3,None,secondary,80,False,8.882,589,44,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,3,,,,
 6777563,False,3,None,secondary,80,True,13.282,590,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,3,,,,
-332731577,True,1,A2,motorway_link,130,False,9.69,591,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.2,1.0,motorway,1,1066.0,1279.0,1066.0,1279.0
+332731577,True,1,A2,motorway_link,130,False,9.69,591,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.2,1.0,motorway,1,494.0,593.0,494.0,593.0
 6777601,False,2,None,secondary,60,False,12.146,592,82,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777601,False,2,None,secondary,60,True,22.015,593,47,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777601,False,2,None,secondary,60,False,7.546,594,82,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777601,False,2,None,secondary,60,True,12.146,595,47,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777603,False,2,None,secondary,50,False,31.681,596,81,50,0.001,None,Hussenbergstraat,None,1.0,3.0,1.9,1.0,2.0,5.0,3.8181818181818183,1.0,secondary,2,72.0,145.0,72.0,145.0
 343031086,False,2,None,secondary,50,True,24.217,597,30,50,0.0,None,Hussenbergstraat,None,2.0,4.0,2.8823529411764706,1.0,4.0,5.0,4.705882352941177,1.0,secondary,2,84.0,137.0,84.0,137.0
-6777688,True,1,A2,motorway_link,100,False,55.194,598,50,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,6071.0,,6071.0
+6777688,True,1,A2,motorway_link,100,False,55.194,598,50,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,2815.0,,2815.0
 6777554,False,2,None,secondary,80,False,6.747,599,45,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777563,False,3,None,secondary,80,True,17.396,600,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,3,,,,
 938735506,False,2,None,secondary,80,True,12.969,601,47,80,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
-332731577,True,1,A2,motorway_link,130,False,9.881,602,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,1087.0,1087.0,1087.0,1087.0
+332731577,True,1,A2,motorway_link,130,False,9.881,602,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,504.0,504.0,504.0,504.0
 6777601,False,2,None,secondary,60,False,9.664,603,82,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777601,False,2,None,secondary,60,True,5.983,604,47,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777601,False,2,None,secondary,60,False,6.786,605,82,60,0.0,None,Cruisboomveld,None,,,,1.0,,,,1.0,secondary,2,,,,
@@ -611,7 +611,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777554,False,2,None,secondary,80,True,12.581,610,54,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
 328352372,False,2,None,secondary,80,False,82.341,611,81,80,0.001,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
 328352372,False,2,None,secondary,80,True,12.605,612,30,80,0.0,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
-332731577,True,1,A2,motorway_link,130,False,11.252,613,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.8,1.0,motorway,1,1238.0,2228.0,1238.0,2228.0
+332731577,True,1,A2,motorway_link,130,False,11.252,613,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.8,1.0,motorway,1,574.0,1033.0,574.0,1033.0
 6777603,False,2,None,secondary,50,False,18.007,614,81,50,0.0,None,Hussenbergstraat,None,2.0,4.0,3.230769230769231,1.0,4.0,5.0,4.769230769230769,1.0,secondary,2,70.0,103.0,70.0,103.0
 6777603,False,2,None,secondary,50,True,4.488,615,30,50,0.0,None,Hussenbergstraat,None,4.0,4.0,4.0,1.0,5.0,5.0,5.0,1.0,secondary,2,22.0,27.0,22.0,27.0
 947375148,True,2,A2,motorway,100,False,45.488,616,110,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -624,13 +624,13 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777603,False,2,None,secondary,50,True,6.965,623,30,50,0.0,None,Hussenbergstraat,None,2.0,4.0,3.3333333333333335,1.0,4.0,5.0,4.666666666666667,1.0,secondary,2,28.0,39.0,28.0,39.0
 6777554,False,2,None,secondary,80,False,15.794,624,45,80,0.0,None,Hoogkuil,None,1.0,1.0,1.0,1.0,1.0,3.0,1.8888888888888888,1.0,secondary,2,19.0,36.0,19.0,36.0
 6777554,False,2,None,secondary,80,True,7.873,625,54,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
-332731577,True,1,A2,motorway_link,130,False,15.205,626,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1673.0,,1673.0
+332731577,True,1,A2,motorway_link,130,False,15.205,626,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,775.0,,775.0
 328352372,False,2,None,secondary,80,False,24.345,627,81,80,0.0,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
 328352372,False,2,None,secondary,80,True,16.097,628,30,80,0.0,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
 6772928,False,2,None,secondary,80,False,13.167,629,48,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777603,False,2,None,secondary,50,False,37.931,630,81,50,0.001,None,Hussenbergstraat,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,46.0,46.0,46.0,46.0
 6777603,False,2,None,secondary,50,True,26.183,631,30,50,0.001,None,Hussenbergstraat,None,1.0,1.0,1.0,1.0,1.0,3.0,1.8888888888888888,1.0,secondary,2,31.0,59.0,31.0,59.0
-1094542816,True,1,A2,motorway_link,130,False,98.161,632,39,130,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,10798.0,,10798.0
+1094542816,True,1,A2,motorway_link,130,False,98.161,632,39,130,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,5006.0,,5006.0
 6777688,True,1,A2,motorway_link,100,False,64.637,633,50,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 328352372,False,2,None,secondary,80,False,15.931,634,81,80,0.0,None,Broekhoven,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,19.0,19.0,19.0,19.0
 328352372,False,2,None,secondary,80,True,12.085,635,30,80,0.0,None,Broekhoven,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,15.0,15.0,15.0,15.0
@@ -657,7 +657,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777554,False,2,None,secondary,80,False,10.559,656,45,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777554,False,2,None,secondary,80,True,73.977,657,54,80,0.001,None,Hoogkuil,None,,,,1.0,1.0,2.0,1.8,1.0,secondary,2,,160.0,,160.0
 947375147,True,2,A2,motorway,100,False,68.701,658,49,100,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,8244.0,8244.0,8244.0,8244.0
-1094542815,True,1,A2,motorway_link,100,False,82.507,659,50,100,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,9076.0,9076.0,9076.0,9076.0
+1094542815,True,1,A2,motorway_link,100,False,82.507,659,50,100,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,4208.0,4208.0,4208.0,4208.0
 6772928,False,2,None,secondary,80,False,13.435,660,48,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6772928,False,2,None,secondary,80,True,14.302,661,88,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777541,False,2,None,secondary,80,False,8.797,662,30,80,0.0,None,Broekhoven,None,,,,1.0,,,,1.0,secondary,2,,,,
@@ -882,7 +882,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6779704,True,1,None,secondary,50,False,1.899,881,122,50,0.0,None,Knooppunt Hoolhuis,roundabout,,,,1.0,2.0,2.0,2.0,1.0,secondary,1,,4.0,,4.0
 144158799,True,2,None,secondary,50,False,3.593,882,12,50,0.0,None,Witte Hoek,roundabout,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,secondary,2,4.0,9.0,4.0,9.0
 465432959,True,1,A79,motorway_link,130,False,10.379,883,18,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-6779607,True,1,A2,motorway_link,50,False,7.544,884,25,50,0.0,None,None,None,3.0,3.0,3.0,1.0,5.0,5.0,5.0,1.0,motorway,1,2490.0,4149.0,2490.0,4149.0
+6779607,True,1,A2,motorway_link,50,False,7.544,884,25,50,0.0,None,None,None,3.0,3.0,3.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1154.0,1924.0,1154.0,1924.0
 6777670,True,1,A2,motorway_link,100,False,60.667,885,59,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 1094543643,True,2,A2,motorway,100,False,57.113,886,60,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 781521675,True,1,A2,motorway_link,100,False,7.639,887,59,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -933,7 +933,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 71234476,True,2,None,secondary_link,50,False,1.162,932,66,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,7.0,7.0,7.0,7.0
 382923864,True,3,A79,motorway,100,False,16.453,933,2,100,0.0,None,None,None,4.0,5.0,4.9,1.0,4.0,5.0,4.909090909090909,1.0,motorway,3,10481.0,10500.0,10481.0,10500.0
 7125689,True,2,A2,motorway,100,False,14.087,934,3,100,0.0,yes,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,2,8452.0,8452.0,8452.0,8452.0
-72369768,True,1,A2,motorway_link,100,False,14.92,935,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1641.0,,1641.0
+72369768,True,1,A2,motorway_link,100,False,14.92,935,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,761.0,,761.0
 6777652,True,2,A2,motorway,100,False,55.654,936,36,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6777652,True,2,A2,motorway,100,False,245.433,937,36,100,0.002,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6777640,True,2,A2,motorway,100,False,67.052,938,37,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -996,10 +996,10 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777554,False,2,None,secondary,80,True,25.387,995,54,80,0.0,None,Hoogkuil,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,152.0,152.0,152.0,152.0
 182723360,True,2,None,secondary,50,False,3.376,996,73,50,0.0,None,Witte Hoek,roundabout,,,,1.0,,,,1.0,secondary,2,,,,
 720131695,True,2,None,secondary,50,False,3.999,997,65,50,0.0,None,Bunderstraat,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,secondary,2,5.0,24.0,5.0,24.0
-6779607,True,1,A2,motorway_link,50,False,7.801,998,25,50,0.0,None,None,None,4.0,5.0,4.75,1.0,5.0,5.0,5.0,1.0,motorway,1,4076.0,4291.0,4076.0,4291.0
+6779607,True,1,A2,motorway_link,50,False,7.801,998,25,50,0.0,None,None,None,4.0,5.0,4.75,1.0,5.0,5.0,5.0,1.0,motorway,1,1890.0,1989.0,1890.0,1989.0
 6779708,False,2,None,secondary,50,False,17.893,999,74,50,0.0,None,Maastrichterweg,None,1.0,2.0,1.375,1.0,4.0,5.0,4.230769230769231,1.0,secondary,2,30.0,91.0,30.0,91.0
 1095936799,True,1,None,secondary,50,False,12.335,1000,75,50,0.0,None,Maastrichterweg,None,1.0,2.0,1.1111111111111112,1.0,4.0,4.0,4.0,1.0,secondary,1,15.0,54.0,15.0,54.0
-390464799,True,1,A2,motorway_link,50,False,6.465,1001,32,50,0.0,None,None,None,,,,1.0,5.0,5.0,5.0,1.0,motorway,1,,3556.0,,3556.0
+390464799,True,1,A2,motorway_link,50,False,6.465,1001,32,50,0.0,None,None,None,,,,1.0,5.0,5.0,5.0,1.0,motorway,1,,1649.0,,1649.0
 1118066824,False,2,None,secondary,50,False,4.102,1002,30,50,0.0,None,Prinses Ireneweg,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,secondary,2,5.0,25.0,5.0,25.0
 1118066824,False,2,None,secondary,50,True,10.158,1003,81,50,0.0,None,Prinses Ireneweg,None,1.0,1.0,1.0,1.0,4.0,5.0,4.875,1.0,secondary,2,12.0,59.0,12.0,59.0
 6779688,True,2,None,secondary,50,False,9.073,1004,29,50,0.0,None,Bunderstraat,None,3.0,5.0,4.0,1.0,5.0,5.0,5.0,1.0,secondary,2,44.0,54.0,44.0,54.0
@@ -1018,7 +1018,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 132365576,True,2,A79,motorway,100,False,87.291,1017,10,100,0.001,None,None,None,,,,1.0,2.0,5.0,3.7049180327868854,1.0,motorway,2,,38809.0,,38809.0
 71234476,True,2,None,secondary_link,50,False,4.67,1018,66,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,28.0,28.0,28.0,28.0
 6777006,True,1,A2,motorway_link,100,False,35.682,1019,32,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-72369768,True,1,A2,motorway_link,100,False,7.616,1020,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,838.0,,838.0
+72369768,True,1,A2,motorway_link,100,False,7.616,1020,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,388.0,,388.0
 1094531556,True,1,A2,motorway_link,100,False,30.705,1021,35,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 332731577,True,1,A2,motorway_link,130,False,6.555,1022,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 720131695,True,2,None,secondary,50,False,3.965,1023,65,50,0.0,None,Bunderstraat,None,4.0,5.0,4.75,1.0,5.0,5.0,5.0,1.0,secondary,2,23.0,24.0,23.0,24.0
@@ -1031,20 +1031,20 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 720131695,True,2,None,secondary,50,False,3.279,1030,65,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,20.0,20.0,20.0,20.0
 205506840,True,2,A2,motorway,100,False,38.658,1031,37,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6779688,True,2,None,secondary,50,False,13.295,1032,29,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,80.0,80.0,80.0,80.0
-332731577,True,1,A2,motorway_link,130,False,17.993,1033,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.5714285714285714,1.0,motorway,1,1979.0,3110.0,1979.0,3110.0
+332731577,True,1,A2,motorway_link,130,False,17.993,1033,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.5714285714285714,1.0,motorway,1,918.0,1442.0,918.0,1442.0
 6777677,True,2,A2,motorway,100,False,23.059,1034,37,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 205506840,True,2,A2,motorway,100,False,57.457,1035,37,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 947375148,True,2,A2,motorway,100,False,60.568,1036,110,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 951700993,True,2,A2,motorway,100,False,28.407,1037,37,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,3409.0,3409.0,3409.0,3409.0
-72369768,True,1,A2,motorway_link,100,False,10.397,1038,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,1.8571428571428572,1.0,motorway,1,,2124.0,,2124.0
+72369768,True,1,A2,motorway_link,100,False,10.397,1038,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,1.8571428571428572,1.0,motorway,1,,985.0,,985.0
 72369768,True,1,A2,motorway_link,100,False,9.32,1039,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 205506852,True,2,None,secondary,50,False,2.204,1040,76,50,0.0,None,None,roundabout,1.0,2.0,1.3333333333333333,1.0,5.0,5.0,5.0,1.0,secondary,2,4.0,13.0,4.0,13.0
-72369768,True,1,A2,motorway_link,100,False,7.497,1041,109,100,0.0,None,None,None,,,,1.0,2.0,2.0,2.0,1.0,motorway,1,,1649.0,,1649.0
-332731577,True,1,A2,motorway_link,130,False,40.494,1042,39,130,0.0,None,None,None,,,,1.0,1.0,4.0,2.074074074074074,1.0,motorway,1,,9239.0,,9239.0
+72369768,True,1,A2,motorway_link,100,False,7.497,1041,109,100,0.0,None,None,None,,,,1.0,2.0,2.0,2.0,1.0,motorway,1,,765.0,,765.0
+332731577,True,1,A2,motorway_link,130,False,40.494,1042,39,130,0.0,None,None,None,,,,1.0,1.0,4.0,2.074074074074074,1.0,motorway,1,,4283.0,,4283.0
 6777677,True,2,A2,motorway,100,False,45.068,1043,37,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,5408.0,5408.0,5408.0,5408.0
 6779704,True,1,None,secondary,50,False,1.891,1044,122,50,0.0,None,Knooppunt Hoolhuis,roundabout,1.0,1.0,1.0,1.0,4.0,5.0,4.5,1.0,secondary,1,2.0,9.0,2.0,9.0
 509397985,True,2,None,secondary,50,False,18.916,1045,112,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,113.0,113.0,113.0,113.0
-332731577,True,1,A2,motorway_link,130,False,14.062,1046,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.125,1.0,motorway,1,1547.0,1740.0,1547.0,1740.0
+332731577,True,1,A2,motorway_link,130,False,14.062,1046,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.125,1.0,motorway,1,717.0,807.0,717.0,807.0
 1037528573,True,1,A2,motorway_link,100,False,11.051,1047,35,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 329197449,True,3,A2,motorway,100,False,38.793,1048,36,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 6777677,True,2,A2,motorway,100,False,41.098,1049,37,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,4932.0,4932.0,4932.0,4932.0
@@ -1052,7 +1052,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777677,True,2,A2,motorway,100,False,36.034,1051,37,100,0.0,None,None,None,1.0,5.0,2.4285714285714284,1.0,3.0,5.0,4.24,1.0,motorway,2,10501.0,18334.0,10501.0,18334.0
 6777677,True,2,A2,motorway,100,False,41.67,1052,37,100,0.0,None,None,None,1.0,5.0,2.1875,1.0,1.0,5.0,3.7777777777777777,1.0,motorway,2,10938.0,18890.0,10938.0,18890.0
 6777652,True,2,A2,motorway,100,False,33.682,1053,36,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,2,,4042.0,,4042.0
-332731577,True,1,A2,motorway_link,130,False,10.708,1054,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1178.0,,1178.0
+332731577,True,1,A2,motorway_link,130,False,10.708,1054,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,546.0,,546.0
 6777558,False,2,None,secondary,80,False,53.518,1055,45,80,0.001,None,Maastrichterlaan,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777558,False,2,None,secondary,80,True,54.212,1056,54,80,0.001,None,Maastrichterlaan,None,,,,1.0,,,,1.0,secondary,2,,,,
 6772935,False,2,None,secondary,50,False,9.588,1057,45,50,0.0,None,Maastrichterlaan,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,secondary,2,12.0,58.0,12.0,58.0
@@ -1166,8 +1166,8 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1041989634,False,2,None,secondary,50,False,17.569,1165,81,50,0.0,None,Hussenbergstraat,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777554,False,2,None,secondary,80,False,12.172,1166,45,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
 6777554,False,2,None,secondary,80,True,5.189,1167,54,80,0.0,None,Hoogkuil,None,,,,1.0,,,,1.0,secondary,2,,,,
-332731577,True,1,A2,motorway_link,130,False,47.084,1168,39,130,0.0,None,None,None,1.0,4.0,2.84,1.0,2.0,5.0,3.8125,1.0,motorway,1,14709.0,19746.0,14709.0,19746.0
-436425509,True,4,A2,motorway_link,100,False,22.66,1169,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,3172.0,,3172.0
+332731577,True,1,A2,motorway_link,130,False,47.084,1168,39,130,0.0,None,None,None,1.0,4.0,2.84,1.0,2.0,5.0,3.8125,1.0,motorway,1,6820.0,9155.0,6820.0,9155.0
+436425509,True,4,A2,motorway_link,100,False,22.66,1169,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,1224.0,,1224.0
 436425510,True,3,A2,motorway_link,100,False,15.228,1170,50,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 163556623,True,2,A2,motorway,100,False,7.592,1171,51,100,0.0,yes,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 163556988,True,2,A2,motorway,100,False,27.937,1172,60,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -1234,7 +1234,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 587459362,True,2,A79,motorway_link,100,False,7.062,1233,11,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 178160302,False,2,None,secondary,50,True,21.947,1234,13,50,0.0,None,Ambyerweg,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,26.0,26.0,26.0,26.0
 182723268,False,2,None,secondary,50,False,31.279,1235,104,50,0.001,None,Ambyerweg,None,1.0,2.0,1.4285714285714286,1.0,1.0,4.0,2.3333333333333335,1.0,secondary,2,54.0,88.0,54.0,88.0
-215573159,True,1,A79,motorway_link,100,False,26.193,1236,84,100,0.0,None,None,None,2.0,4.0,3.111111111111111,1.0,5.0,5.0,5.0,1.0,motorway,1,8964.0,14406.0,8964.0,14406.0
+215573159,True,1,A79,motorway_link,100,False,26.193,1236,84,100,0.0,None,None,None,2.0,4.0,3.111111111111111,1.0,5.0,5.0,5.0,1.0,motorway,1,4156.0,6679.0,4156.0,6679.0
 337017270,True,2,A79,motorway,100,False,20.699,1237,85,100,0.0,None,None,None,1.0,3.0,1.6428571428571428,1.0,5.0,5.0,5.0,1.0,motorway,2,4081.0,12419.0,4081.0,12419.0
 6773022,False,2,None,secondary,50,False,41.557,1238,45,50,0.001,None,Maastrichterlaan,None,3.0,4.0,3.7586206896551726,1.0,4.0,5.0,4.9655172413793105,1.0,secondary,2,187.0,248.0,187.0,248.0
 6773022,False,2,None,secondary,50,True,9.613,1239,54,50,0.0,None,Maastrichterlaan,None,4.0,5.0,4.625,1.0,5.0,5.0,5.0,1.0,secondary,2,53.0,58.0,53.0,58.0
@@ -1299,12 +1299,12 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 207636099,True,2,None,primary,50,False,8.626,1298,94,50,0.0,None,Nieuwe Limmelderweg,None,1.0,2.0,1.5,1.0,2.0,4.0,3.3333333333333335,1.0,primary,2,16.0,35.0,16.0,35.0
 6772928,False,2,None,secondary,80,False,27.273,1299,48,80,0.0,None,Adsteeg,None,,,,1.0,1.0,1.0,1.0,1.0,secondary,2,,33.0,,33.0
 6772928,False,2,None,secondary,80,True,10.229,1300,88,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
-294298502,True,1,A2,motorway_link,100,False,73.303,1301,68,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,8063.0,,8063.0
-294298503,True,1,A2,motorway_link,100,False,11.05,1302,68,100,0.0,viaduct,None,None,,,,1.0,3.0,4.0,3.25,1.0,motorway,1,,3950.0,,3950.0
-294298502,True,1,A2,motorway_link,100,False,61.458,1303,68,100,0.001,None,None,None,1.0,3.0,2.0,1.0,1.0,3.0,2.0,1.0,motorway,1,13521.0,13521.0,13521.0,13521.0
+294298502,True,1,A2,motorway_link,100,False,73.303,1301,68,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,3738.0,,3738.0
+294298503,True,1,A2,motorway_link,100,False,11.05,1302,68,100,0.0,viaduct,None,None,,,,1.0,3.0,4.0,3.25,1.0,motorway,1,,1832.0,,1832.0
+294298502,True,1,A2,motorway_link,100,False,61.458,1303,68,100,0.001,None,None,None,1.0,3.0,2.0,1.0,1.0,3.0,2.0,1.0,motorway,1,6269.0,6269.0,6269.0,6269.0
 294242089,True,1,N2,trunk_link,80,False,30.048,1304,93,80,0.0,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
-294298503,True,1,A2,motorway_link,100,False,20.539,1305,68,100,0.0,viaduct,None,None,1.0,4.0,1.6666666666666667,1.0,3.0,5.0,3.875,1.0,motorway,1,3765.0,8755.0,3765.0,8755.0
-294298502,True,1,A2,motorway_link,100,False,42.125,1306,68,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,4634.0,4634.0,4634.0,4634.0
+294298503,True,1,A2,motorway_link,100,False,20.539,1305,68,100,0.0,viaduct,None,None,1.0,4.0,1.6666666666666667,1.0,3.0,5.0,3.875,1.0,motorway,1,1746.0,4059.0,1746.0,4059.0
+294298502,True,1,A2,motorway_link,100,False,42.125,1306,68,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,2148.0,2148.0,2148.0,2148.0
 294298502,True,1,A2,motorway_link,100,False,53.778,1307,68,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 252677648,True,2,A2,motorway,100,False,24.679,1308,90,100,0.0,yes,None,None,,,,1.0,1.0,2.0,1.3333333333333333,1.0,motorway,2,,3949.0,,3949.0
 252677652,True,2,A2,motorway,100,False,44.132,1309,90,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -1322,12 +1322,12 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777628,False,2,None,secondary,50,True,12.886,1321,81,50,0.0,None,Hulserstraat,None,2.0,5.0,3.5555555555555554,1.0,4.0,5.0,4.888888888888889,1.0,secondary,2,55.0,76.0,55.0,76.0
 254696086,True,2,A2,motorway,100,False,18.743,1322,3,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 340294688,True,1,A2,motorway_link,100,False,7.148,1323,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-340294688,True,1,A2,motorway_link,100,False,12.017,1324,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,1322.0,1322.0,1322.0,1322.0
+340294688,True,1,A2,motorway_link,100,False,12.017,1324,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,613.0,613.0,613.0,613.0
 340294688,True,1,A2,motorway_link,100,False,9.762,1325,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-340294688,True,1,A2,motorway_link,100,False,5.391,1326,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,2965.0,2965.0,2965.0,2965.0
-340294688,True,1,A2,motorway_link,100,False,10.139,1327,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1115.0,,1115.0
-340294688,True,1,A2,motorway_link,100,False,6.087,1328,106,100,0.0,None,None,None,4.0,5.0,4.8,1.0,5.0,5.0,5.0,1.0,motorway,1,3214.0,3348.0,3214.0,3348.0
-340294688,True,1,A2,motorway_link,100,False,8.864,1329,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,975.0,,975.0
+340294688,True,1,A2,motorway_link,100,False,5.391,1326,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1375.0,1375.0,1375.0,1375.0
+340294688,True,1,A2,motorway_link,100,False,10.139,1327,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,517.0,,517.0
+340294688,True,1,A2,motorway_link,100,False,6.087,1328,106,100,0.0,None,None,None,4.0,5.0,4.8,1.0,5.0,5.0,5.0,1.0,motorway,1,1490.0,1552.0,1490.0,1552.0
+340294688,True,1,A2,motorway_link,100,False,8.864,1329,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,452.0,,452.0
 340294688,True,1,A2,motorway_link,100,False,7.18,1330,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6773079,False,2,None,secondary,50,False,99.067,1331,78,50,0.002,None,Prins Mauritslaan,None,1.0,1.0,1.0,1.0,1.0,3.0,1.6166666666666667,1.0,secondary,2,119.0,192.0,119.0,192.0
 6773079,False,2,None,secondary,50,True,33.712,1332,95,50,0.001,None,Prins Mauritslaan,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,secondary,2,40.0,40.0,40.0,40.0
@@ -1368,7 +1368,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 720205319,True,1,A79,motorway,100,False,39.146,1367,100,100,0.0,None,None,None,3.0,5.0,4.137931034482759,1.0,4.0,5.0,4.448275862068965,1.0,motorway,1,17818.0,19155.0,17818.0,19155.0
 720205318,True,1,A79,motorway_link,80,False,55.483,1368,99,80,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 720205319,True,1,A79,motorway,100,False,46.472,1369,100,100,0.0,None,None,None,4.0,5.0,4.352941176470588,1.0,4.0,5.0,4.705882352941177,1.0,motorway,1,22252.0,24056.0,22252.0,24056.0
-284802951,True,1,A79,motorway_link,80,False,16.774,1370,99,80,0.0,None,None,None,2.0,3.0,2.3846153846153846,1.0,3.0,4.0,3.923076923076923,1.0,motorway,1,4400.0,7239.0,4400.0,7239.0
+284802951,True,1,A79,motorway_link,80,False,16.774,1370,99,80,0.0,None,None,None,2.0,3.0,2.3846153846153846,1.0,3.0,4.0,3.923076923076923,1.0,motorway,1,2040.0,3356.0,2040.0,3356.0
 369221729,True,1,A79,motorway,100,False,16.378,1371,100,100,0.0,None,None,None,2.0,4.0,2.6923076923076925,1.0,4.0,4.0,4.0,1.0,motorway,1,4850.0,7206.0,4850.0,7206.0
 459840416,False,2,None,secondary,50,False,8.021,1372,104,50,0.0,None,Ambyerweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 587459367,False,2,None,secondary,50,True,6.284,1373,13,50,0.0,None,Ambyerweg,None,,,,1.0,,,,1.0,secondary,2,,,,
@@ -1501,8 +1501,8 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777603,False,2,None,secondary,50,True,22.095,1500,30,50,0.0,None,Hussenbergstraat,None,1.0,2.0,1.25,1.0,2.0,4.0,3.588235294117647,1.0,secondary,2,33.0,95.0,33.0,95.0
 284803025,True,2,A2,motorway,100,False,97.353,1501,98,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 587459361,True,2,A2,motorway_link,100,False,77.112,1502,68,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
-587459361,True,2,A2,motorway_link,100,False,46.932,1503,68,100,0.0,None,None,None,1.0,4.0,2.090909090909091,1.0,1.0,4.0,2.3076923076923075,1.0,motorway,2,11776.0,12997.0,11776.0,12997.0
-1094522126,True,1,A79,motorway_link,100,False,42.154,1504,6,100,0.0,None,None,None,1.0,3.0,1.8666666666666667,1.0,4.0,5.0,4.833333333333333,1.0,motorway,1,8656.0,22412.0,8656.0,22412.0
+587459361,True,2,A2,motorway_link,100,False,46.932,1503,68,100,0.0,None,None,None,1.0,4.0,2.090909090909091,1.0,1.0,4.0,2.3076923076923075,1.0,motorway,2,5103.0,5632.0,5103.0,5632.0
+1094522126,True,1,A79,motorway_link,100,False,42.154,1504,6,100,0.0,None,None,None,1.0,3.0,1.8666666666666667,1.0,4.0,5.0,4.833333333333333,1.0,motorway,1,4013.0,10391.0,4013.0,10391.0
 720205319,True,1,A79,motorway,100,False,54.116,1505,100,100,0.001,None,None,None,4.0,5.0,4.666666666666667,1.0,1.0,5.0,3.5,1.0,motorway,1,27780.0,20835.0,27780.0,20835.0
 337017270,True,2,A79,motorway,100,False,93.876,1506,85,100,0.001,None,None,None,1.0,2.0,1.1111111111111112,1.0,1.0,4.0,2.84375,1.0,motorway,2,12517.0,32035.0,12517.0,32035.0
 340294688,True,1,A2,motorway_link,100,False,14.924,1507,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
@@ -1514,10 +1514,10 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 294242091,True,2,None,primary,50,False,10.598,1513,92,50,0.0,None,Nieuwe Limmelderweg,None,,,,1.0,,,,1.0,primary,2,,,,
 7125689,True,2,A2,motorway,100,False,26.613,1514,3,100,0.0,yes,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,2,15968.0,15968.0,15968.0,15968.0
 462397446,True,1,N2,trunk,80,False,34.851,1515,97,80,0.0,None,None,None,1.0,5.0,4.44,1.0,5.0,5.0,5.0,1.0,trunk,1,1702.0,1917.0,1702.0,1917.0
-340294688,True,1,A2,motorway_link,100,False,8.857,1516,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,974.0,,974.0
-340294688,True,1,A2,motorway_link,100,False,8.978,1517,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,988.0,988.0,988.0,988.0
-340294688,True,1,A2,motorway_link,100,False,5.856,1518,106,100,0.0,None,None,None,1.0,3.0,2.0,1.0,3.0,4.0,3.6666666666666665,1.0,motorway,1,1288.0,2362.0,1288.0,2362.0
-340294688,True,1,A2,motorway_link,100,False,7.148,1519,106,100,0.0,None,None,None,1.0,5.0,3.25,1.0,3.0,5.0,4.25,1.0,motorway,1,2555.0,3342.0,2555.0,3342.0
+340294688,True,1,A2,motorway_link,100,False,8.857,1516,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,452.0,,452.0
+340294688,True,1,A2,motorway_link,100,False,8.978,1517,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,458.0,458.0,458.0,458.0
+340294688,True,1,A2,motorway_link,100,False,5.856,1518,106,100,0.0,None,None,None,1.0,3.0,2.0,1.0,3.0,4.0,3.6666666666666665,1.0,motorway,1,597.0,1095.0,597.0,1095.0
+340294688,True,1,A2,motorway_link,100,False,7.148,1519,106,100,0.0,None,None,None,1.0,5.0,3.25,1.0,3.0,5.0,4.25,1.0,motorway,1,1185.0,1549.0,1185.0,1549.0
 587459366,True,2,None,primary,50,False,8.407,1520,94,50,0.0,None,Nieuwe Limmelderweg,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,primary,2,50.0,50.0,50.0,50.0
 462397446,True,1,N2,trunk,80,False,48.714,1521,97,80,0.001,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
 587459365,True,2,None,primary,50,False,9.171,1522,103,50,0.0,None,Nieuwe Limmelderweg,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,primary,2,55.0,55.0,55.0,55.0
@@ -1563,7 +1563,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 284803026,True,2,A2,motorway,100,False,16.932,1562,98,100,0.0,viaduct,None,None,4.0,5.0,4.916666666666667,1.0,5.0,5.0,5.0,1.0,motorway,2,9990.0,10159.0,9990.0,10159.0
 6779728,True,1,A79,motorway_link,100,False,40.043,1563,6,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 340294686,True,1,None,primary,50,False,23.877,1564,105,50,0.0,None,Nieuwe Limmelderweg,None,3.0,5.0,4.666666666666667,1.0,4.0,5.0,4.833333333333333,1.0,primary,1,123.0,127.0,123.0,127.0
-340294688,True,1,A2,motorway_link,100,False,209.795,1565,106,100,0.002,None,None,None,1.0,5.0,3.7475728155339807,1.0,1.0,5.0,3.7981651376146788,1.0,motorway,1,86484.0,87652.0,86484.0,87652.0
+340294688,True,1,A2,motorway_link,100,False,209.795,1565,106,100,0.002,None,None,None,1.0,5.0,3.7475728155339807,1.0,1.0,5.0,3.7981651376146788,1.0,motorway,1,40097.0,40639.0,40097.0,40639.0
 587459367,False,2,None,secondary,50,False,5.406,1566,104,50,0.0,None,Ambyerweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 587459367,False,2,None,secondary,50,True,4.139,1567,13,50,0.0,None,Ambyerweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6779686,True,2,None,primary,50,False,20.484,1568,5,50,0.0,None,Nieuwe Limmelderweg,None,,,,1.0,,,,1.0,primary,2,,,,
@@ -1581,11 +1581,11 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1037610686,True,1,A2,motorway_link,130,False,24.349,1580,108,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 254696086,True,2,A2,motorway,100,False,15.479,1581,3,100,0.0,None,None,None,1.0,5.0,4.428571428571429,1.0,5.0,5.0,5.0,1.0,motorway,2,8226.0,9287.0,8226.0,9287.0
 284803025,True,2,A2,motorway,100,False,34.392,1582,98,100,0.0,None,None,None,2.0,5.0,4.0,1.0,4.0,5.0,4.666666666666667,1.0,motorway,2,16508.0,19260.0,16508.0,19260.0
-215573159,True,1,A79,motorway_link,100,False,15.896,1583,84,100,0.0,None,None,None,3.0,5.0,3.8,1.0,5.0,5.0,5.0,1.0,motorway,1,6645.0,8743.0,6645.0,8743.0
+215573159,True,1,A79,motorway_link,100,False,15.896,1583,84,100,0.0,None,None,None,3.0,5.0,3.8,1.0,5.0,5.0,5.0,1.0,motorway,1,3081.0,4053.0,3081.0,4053.0
 337017270,True,2,A79,motorway,100,False,24.384,1584,85,100,0.0,None,None,None,1.0,3.0,1.9473684210526316,1.0,5.0,5.0,5.0,1.0,motorway,2,5698.0,14630.0,5698.0,14630.0
-215573159,True,1,A79,motorway_link,100,False,30.424,1585,84,100,0.0,None,None,None,1.0,5.0,3.0714285714285716,1.0,2.0,5.0,4.761904761904762,1.0,motorway,1,10279.0,15936.0,10279.0,15936.0
+215573159,True,1,A79,motorway_link,100,False,30.424,1585,84,100,0.0,None,None,None,1.0,5.0,3.0714285714285716,1.0,2.0,5.0,4.761904761904762,1.0,motorway,1,4766.0,7389.0,4766.0,7389.0
 337017270,True,2,A79,motorway,100,False,27.711,1586,85,100,0.0,None,None,None,1.0,2.0,1.1666666666666667,1.0,4.0,5.0,4.947368421052632,1.0,motorway,2,3880.0,16452.0,3880.0,16452.0
-215573159,True,1,A79,motorway_link,100,False,40.205,1587,84,100,0.0,None,None,None,,,,1.0,2.0,2.0,2.0,1.0,motorway,1,,8845.0,,8845.0
+215573159,True,1,A79,motorway_link,100,False,40.205,1587,84,100,0.0,None,None,None,,,,1.0,2.0,2.0,2.0,1.0,motorway,1,,4101.0,,4101.0
 390464800,True,3,A2,motorway,100,False,421.397,1588,37,100,0.004,None,None,None,1.0,4.0,1.8918918918918919,1.0,1.0,5.0,3.3820224719101124,1.0,motorway,3,103641.0,185273.0,103641.0,185273.0
 435551040,True,2,A79,motorway,100,False,50.065,1589,71,100,0.001,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6779081,True,2,A79,motorway,100,False,23.01,1590,71,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -1610,16 +1610,16 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 436425508,True,1,A2,motorway_link,100,False,10.918,1609,109,100,0.0,yes,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 509091285,True,2,A2,motorway,100,False,9.792,1610,110,100,0.0,yes,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 72369768,True,1,A2,motorway_link,100,False,7.668,1611,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-436425509,True,4,A2,motorway_link,100,False,62.385,1612,109,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,8734.0,,8734.0
-436425506,True,3,A2,motorway_link,100,False,16.897,1613,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.5,1.0,motorway,3,2197.0,3295.0,2197.0,3295.0
-436425507,True,2,A2,motorway_link,100,False,35.332,1614,50,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.0769230769230769,1.0,motorway,2,4240.0,4566.0,4240.0,4566.0
+436425509,True,4,A2,motorway_link,100,False,62.385,1612,109,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,3369.0,,3369.0
+436425506,True,3,A2,motorway_link,100,False,16.897,1613,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.5,1.0,motorway,3,896.0,1343.0,896.0,1343.0
+436425507,True,2,A2,motorway_link,100,False,35.332,1614,50,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.0769230769230769,1.0,motorway,2,1837.0,1979.0,1837.0,1979.0
 6777688,True,1,A2,motorway_link,100,False,42.952,1615,50,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6772928,False,2,None,secondary,80,False,8.744,1616,48,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6772928,False,2,None,secondary,80,True,11.731,1617,88,80,0.0,None,Adsteeg,None,,,,1.0,,,,1.0,secondary,2,,,,
 284803024,True,3,A2,motorway,100,False,24.714,1618,67,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 6777556,False,2,None,secondary,50,False,8.366,1619,30,50,0.0,None,Prinses Ireneweg,None,3.0,4.0,3.8333333333333335,1.0,4.0,5.0,4.666666666666667,1.0,secondary,2,38.0,47.0,38.0,47.0
 6777556,False,2,None,secondary,50,True,17.37,1620,81,50,0.0,None,Prinses Ireneweg,None,3.0,5.0,4.642857142857143,1.0,4.0,5.0,4.928571428571429,1.0,secondary,2,97.0,103.0,97.0,103.0
-720205318,True,1,A79,motorway_link,80,False,35.938,1621,99,80,0.0,None,None,None,1.0,3.0,1.5,1.0,1.0,4.0,2.1538461538461537,1.0,motorway,1,5930.0,8515.0,5930.0,8515.0
+720205318,True,1,A79,motorway_link,80,False,35.938,1621,99,80,0.0,None,None,None,1.0,3.0,1.5,1.0,1.0,4.0,2.1538461538461537,1.0,motorway,1,2749.0,3948.0,2749.0,3948.0
 196323453,False,2,None,secondary,50,False,35.581,1622,86,50,0.001,None,Brugstraat,None,1.0,5.0,4.44,1.0,5.0,5.0,5.0,1.0,secondary,2,190.0,213.0,190.0,213.0
 196323453,False,2,None,secondary,50,True,36.364,1623,55,50,0.001,None,Brugstraat,None,1.0,3.0,2.1666666666666665,1.0,5.0,5.0,5.0,1.0,secondary,2,95.0,218.0,95.0,218.0
 6777601,False,2,None,secondary,60,False,35.897,1624,82,60,0.001,None,Cruisboomveld,None,1.0,3.0,1.8846153846153846,1.0,1.0,4.0,2.3076923076923075,1.0,secondary,2,81.0,99.0,81.0,99.0
@@ -1693,14 +1693,14 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 720205319,True,1,A79,motorway,100,False,33.53,1692,100,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,18442.0,18442.0,18442.0,18442.0
 6779681,False,2,None,secondary,80,False,13.258,1693,17,80,0.0,None,Maastrichterweg,None,,,,1.0,,,,1.0,secondary,2,,,,
 6779681,False,2,None,secondary,80,True,10.835,1694,56,80,0.0,None,Maastrichterweg,None,,,,1.0,,,,1.0,secondary,2,,,,
-284802951,True,1,A79,motorway_link,80,False,33.231,1695,99,80,0.0,None,None,None,2.0,3.0,2.7083333333333335,1.0,3.0,4.0,3.7916666666666665,1.0,motorway,1,9900.0,13860.0,9900.0,13860.0
+284802951,True,1,A79,motorway_link,80,False,33.231,1695,99,80,0.0,None,None,None,2.0,3.0,2.7083333333333335,1.0,3.0,4.0,3.7916666666666665,1.0,motorway,1,4590.0,6426.0,4590.0,6426.0
 369221729,True,1,A79,motorway,100,False,37.642,1696,100,100,0.0,None,None,None,3.0,5.0,3.962962962962963,1.0,4.0,5.0,4.62962962962963,1.0,motorway,1,16409.0,19170.0,16409.0,19170.0
-720205318,True,1,A79,motorway_link,80,False,36.474,1697,99,80,0.0,None,None,None,1.0,5.0,3.0,1.0,2.0,5.0,3.6153846153846154,1.0,motorway,1,12036.0,14505.0,12036.0,14505.0
-284802951,True,1,A79,motorway_link,80,False,46.83,1698,99,80,0.001,None,None,None,3.0,5.0,4.0,1.0,4.0,5.0,4.5,1.0,motorway,1,20605.0,23181.0,20605.0,23181.0
+720205318,True,1,A79,motorway_link,80,False,36.474,1697,99,80,0.0,None,None,None,1.0,5.0,3.0,1.0,2.0,5.0,3.6153846153846154,1.0,motorway,1,5581.0,6725.0,5581.0,6725.0
+284802951,True,1,A79,motorway_link,80,False,46.83,1698,99,80,0.001,None,None,None,3.0,5.0,4.0,1.0,4.0,5.0,4.5,1.0,motorway,1,9553.0,10747.0,9553.0,10747.0
 369221729,True,1,A79,motorway,100,False,51.405,1699,100,100,0.001,None,None,None,4.0,5.0,4.815789473684211,1.0,5.0,5.0,5.0,1.0,motorway,1,27231.0,28273.0,27231.0,28273.0
 587459362,True,2,A79,motorway_link,100,False,8.492,1700,11,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
-6779730,True,1,A79,motorway_link,100,False,35.479,1701,11,100,0.0,None,None,None,4.0,5.0,4.423076923076923,1.0,5.0,5.0,5.0,1.0,motorway,1,17262.0,19513.0,17262.0,19513.0
-6779730,True,1,A79,motorway_link,100,False,33.712,1702,11,100,0.0,None,None,None,1.0,2.0,1.4,1.0,1.0,4.0,2.5454545454545454,1.0,motorway,1,5192.0,9439.0,5192.0,9439.0
+6779730,True,1,A79,motorway_link,100,False,35.479,1701,11,100,0.0,None,None,None,4.0,5.0,4.423076923076923,1.0,5.0,5.0,5.0,1.0,motorway,1,8003.0,9047.0,8003.0,9047.0
+6779730,True,1,A79,motorway_link,100,False,33.712,1702,11,100,0.0,None,None,None,1.0,2.0,1.4,1.0,1.0,4.0,2.5454545454545454,1.0,motorway,1,2407.0,4376.0,2407.0,4376.0
 6779729,True,2,A79,motorway,100,False,22.367,1703,10,100,0.0,None,None,None,1.0,3.0,2.066666666666667,1.0,2.0,4.0,3.4375,1.0,motorway,2,5547.0,9226.0,5547.0,9226.0
 6779729,True,2,A79,motorway,100,False,37.635,1704,10,100,0.0,None,None,None,1.0,2.0,1.125,1.0,1.0,3.0,1.6,1.0,motorway,2,5081.0,7226.0,5081.0,7226.0
 6779729,True,2,A79,motorway,100,False,57.687,1705,10,100,0.001,None,None,None,1.0,2.0,1.5,1.0,3.0,5.0,4.333333333333333,1.0,motorway,2,10384.0,29997.0,10384.0,29997.0
@@ -1767,15 +1767,15 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777560,False,2,None,secondary,50,True,6.386,1766,81,50,0.0,None,Vliegenstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,38.0,38.0,38.0,38.0
 337060737,True,2,None,primary,50,False,10.337,1767,103,50,0.0,None,Nieuwe Limmelderweg,None,,,,1.0,,,,1.0,primary,2,,,,
 207636099,True,2,None,primary,50,False,5.11,1768,94,50,0.0,None,Nieuwe Limmelderweg,None,,,,1.0,,,,1.0,primary,2,,,,
-6779730,True,1,A79,motorway_link,100,False,75.892,1769,11,100,0.001,None,None,None,1.0,4.0,2.03125,1.0,5.0,5.0,5.0,1.0,motorway,1,16957.0,41741.0,16957.0,41741.0
+6779730,True,1,A79,motorway_link,100,False,75.892,1769,11,100,0.001,None,None,None,1.0,4.0,2.03125,1.0,5.0,5.0,5.0,1.0,motorway,1,7862.0,19352.0,7862.0,19352.0
 284802950,True,1,A2,motorway_link,100,False,27.069,1770,68,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 72400805,True,2,N2,trunk,80,False,43.924,1771,4,80,0.001,None,None,None,,,,1.0,,,,1.0,trunk,2,,,,
 720205318,True,1,A79,motorway_link,80,False,50.779,1772,99,80,0.001,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 587459364,True,3,None,primary,50,False,19.62,1773,5,50,0.0,yes,Nieuwe Limmelderweg,None,1.0,5.0,3.0,1.0,1.0,5.0,3.5555555555555554,1.0,primary,3,77.0,91.0,77.0,91.0
 340294688,True,1,A2,motorway_link,100,False,13.817,1774,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-340294688,True,1,A2,motorway_link,100,False,8.142,1775,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,896.0,,896.0
-340294688,True,1,A2,motorway_link,100,False,8.187,1776,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,901.0,,901.0
-340294688,True,1,A2,motorway_link,100,False,5.921,1777,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,3.0,2.0,1.0,motorway,1,651.0,1303.0,651.0,1303.0
+340294688,True,1,A2,motorway_link,100,False,8.142,1775,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,415.0,,415.0
+340294688,True,1,A2,motorway_link,100,False,8.187,1776,106,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,418.0,,418.0
+340294688,True,1,A2,motorway_link,100,False,5.921,1777,106,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,3.0,2.0,1.0,motorway,1,302.0,604.0,302.0,604.0
 462397446,True,1,N2,trunk,80,False,30.538,1778,97,80,0.0,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
 462397446,True,1,N2,trunk,80,False,20.432,1779,97,80,0.0,None,None,None,2.0,5.0,3.9166666666666665,1.0,5.0,5.0,5.0,1.0,trunk,1,880.0,1124.0,880.0,1124.0
 462397446,True,1,N2,trunk,80,False,67.819,1780,97,80,0.001,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,trunk,1,746.0,746.0,746.0,746.0
@@ -1827,9 +1827,9 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 337060733,True,3,A2,motorway,100,False,14.611,1826,90,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
 340294688,True,1,A2,motorway_link,100,False,6.016,1827,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 340294688,True,1,A2,motorway_link,100,False,6.613,1828,106,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-340294688,True,1,A2,motorway_link,100,False,5.846,1829,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,3215.0,3215.0,3215.0,3215.0
-340294688,True,1,A2,motorway_link,100,False,6.022,1830,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,3312.0,3312.0,3312.0,3312.0
-340294688,True,1,A2,motorway_link,100,False,6.169,1831,106,100,0.0,None,None,None,3.0,4.0,3.8,1.0,4.0,5.0,4.8,1.0,motorway,1,2579.0,3257.0,2579.0,3257.0
+340294688,True,1,A2,motorway_link,100,False,5.846,1829,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1491.0,1491.0,1491.0,1491.0
+340294688,True,1,A2,motorway_link,100,False,6.022,1830,106,100,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1536.0,1536.0,1536.0,1536.0
+340294688,True,1,A2,motorway_link,100,False,6.169,1831,106,100,0.0,None,None,None,3.0,4.0,3.8,1.0,4.0,5.0,4.8,1.0,motorway,1,1196.0,1510.0,1196.0,1510.0
 382923864,True,3,A79,motorway,100,False,15.907,1832,2,100,0.0,None,None,None,1.0,5.0,4.083333333333333,1.0,1.0,5.0,4.6923076923076925,1.0,motorway,3,8444.0,9703.0,8444.0,9703.0
 337017270,True,2,A79,motorway,100,False,23.156,1833,85,100,0.0,None,None,None,1.0,2.0,1.5,1.0,3.0,5.0,4.117647058823529,1.0,motorway,2,4168.0,11442.0,4168.0,11442.0
 337017270,True,2,A79,motorway,100,False,37.192,1834,85,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,2,,4463.0,,4463.0
@@ -1880,8 +1880,8 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 294242089,True,1,N2,trunk_link,80,False,30.207,1879,93,80,0.0,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
 294242089,True,1,N2,trunk_link,80,False,37.928,1880,93,80,0.0,None,None,None,,,,1.0,,,,1.0,trunk,1,,,,
 1095936814,True,1,None,secondary,50,False,4.194,1881,70,50,0.0,None,Maastrichterweg,None,1.0,1.0,1.0,1.0,4.0,4.0,4.0,1.0,secondary,1,5.0,18.0,5.0,18.0
-6779607,True,1,A2,motorway_link,50,False,7.955,1882,25,50,0.0,None,None,None,3.0,5.0,3.857142857142857,1.0,5.0,5.0,5.0,1.0,motorway,1,3375.0,4375.0,3375.0,4375.0
-6779607,True,1,A2,motorway_link,50,False,6.97,1883,25,50,0.0,None,None,None,3.0,4.0,3.4,1.0,5.0,5.0,5.0,1.0,motorway,1,2607.0,3834.0,2607.0,3834.0
+6779607,True,1,A2,motorway_link,50,False,7.955,1882,25,50,0.0,None,None,None,3.0,5.0,3.857142857142857,1.0,5.0,5.0,5.0,1.0,motorway,1,1565.0,2029.0,1565.0,2029.0
+6779607,True,1,A2,motorway_link,50,False,6.97,1883,25,50,0.0,None,None,None,3.0,4.0,3.4,1.0,5.0,5.0,5.0,1.0,motorway,1,1209.0,1777.0,1209.0,1777.0
 509397985,True,2,None,secondary,50,False,7.433,1884,29,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,45.0,45.0,45.0,45.0
 509397985,True,2,None,secondary,50,False,11.342,1885,112,50,0.0,None,Bunderstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,68.0,68.0,68.0,68.0
 359428764,False,2,None,secondary,80,False,15.106,1886,30,80,0.0,None,Slingerberg,None,,,,1.0,,,,1.0,secondary,2,,,,
@@ -2048,7 +2048,7 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 1095938425,False,4,None,secondary,80,True,7.519,2047,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 447136707,False,5,None,secondary,80,False,36.96,2048,41,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,5,,,,
 447136707,False,5,None,secondary,80,True,26.964,2049,43,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,5,,,,
-436425509,True,4,A2,motorway_link,100,False,6.825,2050,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,956.0,,956.0
+436425509,True,4,A2,motorway_link,100,False,6.825,2050,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,4,,369.0,,369.0
 6777660,True,4,A2,motorway,100,False,52.057,2051,36,100,0.001,None,None,None,1.0,2.0,1.4285714285714286,1.0,1.0,2.0,1.2142857142857142,1.0,motorway,4,10411.0,8850.0,10411.0,8850.0
 763192825,True,3,A2,motorway,100,False,33.642,2052,36,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,3,,4373.0,,4373.0
 763192823,True,4,A2,motorway,100,False,28.783,2053,36,100,0.0,None,None,None,2.0,3.0,2.3333333333333335,1.0,2.0,3.0,2.5,1.0,motorway,4,9402.0,10074.0,9402.0,10074.0
@@ -2112,11 +2112,11 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 182723268,False,2,None,secondary,50,False,50.258,2111,104,50,0.001,None,Ambyerweg,None,2.0,5.0,3.8620689655172415,1.0,4.0,5.0,4.896551724137931,1.0,secondary,2,233.0,295.0,233.0,295.0
 182723268,False,2,None,secondary,50,True,8.286,2112,13,50,0.0,None,Ambyerweg,None,4.0,4.0,4.0,1.0,5.0,5.0,5.0,1.0,secondary,2,40.0,50.0,40.0,50.0
 1095936799,True,1,None,secondary,50,False,10.56,2113,75,50,0.0,None,Maastrichterweg,None,2.0,3.0,2.888888888888889,1.0,3.0,5.0,4.111111111111111,1.0,secondary,1,34.0,48.0,34.0,48.0
-1333271497,True,1,A2,motorway_link,80,False,4.698,2114,32,80,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,517.0,2584.0,517.0,2584.0
-1333271497,True,1,A2,motorway_link,80,False,2.536,2115,32,80,0.0,None,None,None,1.0,1.0,1.0,1.0,3.0,5.0,4.333333333333333,1.0,motorway,1,279.0,1209.0,279.0,1209.0
-1333271497,True,1,A2,motorway_link,80,False,5.909,2116,32,80,0.0,None,None,None,1.0,2.0,1.4,1.0,5.0,5.0,5.0,1.0,motorway,1,910.0,3250.0,910.0,3250.0
-1333271497,True,1,A2,motorway_link,80,False,2.924,2117,32,80,0.0,None,None,None,1.0,3.0,1.6666666666666667,1.0,5.0,5.0,5.0,1.0,motorway,1,536.0,1608.0,536.0,1608.0
-390464799,True,1,A2,motorway_link,50,False,2.522,2118,32,50,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,277.0,1387.0,277.0,1387.0
+1333271497,True,1,A2,motorway_link,80,False,4.698,2114,32,80,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,240.0,1198.0,240.0,1198.0
+1333271497,True,1,A2,motorway_link,80,False,2.536,2115,32,80,0.0,None,None,None,1.0,1.0,1.0,1.0,3.0,5.0,4.333333333333333,1.0,motorway,1,129.0,560.0,129.0,560.0
+1333271497,True,1,A2,motorway_link,80,False,5.909,2116,32,80,0.0,None,None,None,1.0,2.0,1.4,1.0,5.0,5.0,5.0,1.0,motorway,1,422.0,1507.0,422.0,1507.0
+1333271497,True,1,A2,motorway_link,80,False,2.924,2117,32,80,0.0,None,None,None,1.0,3.0,1.6666666666666667,1.0,5.0,5.0,5.0,1.0,motorway,1,249.0,746.0,249.0,746.0
+390464799,True,1,A2,motorway_link,50,False,2.522,2118,32,50,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,129.0,643.0,129.0,643.0
 153020405,True,2,A79,motorway,100,False,24.389,2119,124,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,2,2927.0,2927.0,2927.0,2927.0
 153020405,True,2,A79,motorway,100,False,38.11,2120,124,100,0.0,None,None,None,1.0,2.0,1.25,1.0,1.0,2.0,1.25,1.0,motorway,2,5716.0,5716.0,5716.0,5716.0
 153020405,True,2,A79,motorway,100,False,27.111,2121,124,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -2325,40 +2325,40 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 720129191,False,4,None,secondary,80,True,21.262,2324,43,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 1095938425,False,4,None,secondary,80,False,12.865,2325,44,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
 1095938425,False,4,None,secondary,80,True,17.221,2326,46,80,0.0,None,Europalaan,None,,,,1.0,,,,1.0,secondary,4,,,,
-72369768,True,1,A2,motorway_link,100,False,12.689,2327,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,1396.0,1396.0,1396.0,1396.0
+72369768,True,1,A2,motorway_link,100,False,12.689,2327,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,647.0,647.0,647.0,647.0
 72369768,True,1,A2,motorway_link,100,False,6.671,2328,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-72369768,True,1,A2,motorway_link,100,False,16.095,2329,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.1111111111111112,1.0,motorway,1,,1967.0,,1967.0
-72369768,True,1,A2,motorway_link,100,False,7.504,2330,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,2.1666666666666665,1.0,motorway,1,,1788.0,,1788.0
-72369768,True,1,A2,motorway_link,100,False,6.505,2331,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.0,1.0,motorway,1,716.0,1431.0,716.0,1431.0
-72369768,True,1,A2,motorway_link,100,False,9.915,2332,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,4.0,2.8333333333333335,1.0,motorway,1,1091.0,3090.0,1091.0,3090.0
-72369768,True,1,A2,motorway_link,100,False,6.662,2333,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,2.1666666666666665,1.0,motorway,1,,1588.0,,1588.0
-72369768,True,1,A2,motorway_link,100,False,6.455,2334,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,motorway,1,710.0,1775.0,710.0,1775.0
-72369768,True,1,A2,motorway_link,100,False,7.389,2335,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,,1355.0,,1355.0
-72369768,True,1,A2,motorway_link,100,False,7.574,2336,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,3.0,2.6,1.0,motorway,1,833.0,2166.0,833.0,2166.0
-72369768,True,1,A2,motorway_link,100,False,6.998,2337,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,3.0,2.75,1.0,motorway,1,770.0,2117.0,770.0,2117.0
-72369768,True,1,A2,motorway_link,100,False,5.971,2338,109,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,1.0,4.0,2.75,1.0,motorway,1,876.0,1806.0,876.0,1806.0
-72369768,True,1,A2,motorway_link,100,False,5.319,2339,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,585.0,585.0,585.0,585.0
-72369768,True,1,A2,motorway_link,100,False,4.223,2340,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,465.0,,465.0
-72369768,True,1,A2,motorway_link,100,False,4.545,2341,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,motorway,1,500.0,1000.0,500.0,1000.0
+72369768,True,1,A2,motorway_link,100,False,16.095,2329,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.1111111111111112,1.0,motorway,1,,912.0,,912.0
+72369768,True,1,A2,motorway_link,100,False,7.504,2330,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,2.1666666666666665,1.0,motorway,1,,829.0,,829.0
+72369768,True,1,A2,motorway_link,100,False,6.505,2331,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.0,1.0,motorway,1,332.0,664.0,332.0,664.0
+72369768,True,1,A2,motorway_link,100,False,9.915,2332,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,4.0,2.8333333333333335,1.0,motorway,1,506.0,1433.0,506.0,1433.0
+72369768,True,1,A2,motorway_link,100,False,6.662,2333,109,100,0.0,None,None,None,,,,1.0,1.0,3.0,2.1666666666666665,1.0,motorway,1,,736.0,,736.0
+72369768,True,1,A2,motorway_link,100,False,6.455,2334,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,4.0,2.5,1.0,motorway,1,329.0,823.0,329.0,823.0
+72369768,True,1,A2,motorway_link,100,False,7.389,2335,109,100,0.0,None,None,None,,,,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,,628.0,,628.0
+72369768,True,1,A2,motorway_link,100,False,7.574,2336,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,3.0,2.6,1.0,motorway,1,386.0,1004.0,386.0,1004.0
+72369768,True,1,A2,motorway_link,100,False,6.998,2337,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,3.0,2.75,1.0,motorway,1,357.0,981.0,357.0,981.0
+72369768,True,1,A2,motorway_link,100,False,5.971,2338,109,100,0.0,None,None,None,1.0,2.0,1.3333333333333333,1.0,1.0,4.0,2.75,1.0,motorway,1,406.0,837.0,406.0,837.0
+72369768,True,1,A2,motorway_link,100,False,5.319,2339,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,271.0,271.0,271.0,271.0
+72369768,True,1,A2,motorway_link,100,False,4.223,2340,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,215.0,,215.0
+72369768,True,1,A2,motorway_link,100,False,4.545,2341,109,100,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,motorway,1,232.0,464.0,232.0,464.0
 72369768,True,1,A2,motorway_link,100,False,5.522,2342,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 72369768,True,1,A2,motorway_link,100,False,6.728,2343,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 72369768,True,1,A2,motorway_link,100,False,6.518,2344,109,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-72369768,True,1,A2,motorway_link,100,False,8.704,2345,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,957.0,,957.0
-332731577,True,1,A2,motorway_link,130,False,10.089,2346,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1110.0,,1110.0
+72369768,True,1,A2,motorway_link,100,False,8.704,2345,109,100,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,444.0,,444.0
+332731577,True,1,A2,motorway_link,130,False,10.089,2346,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,515.0,,515.0
 332731577,True,1,A2,motorway_link,130,False,6.768,2347,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 332731577,True,1,A2,motorway_link,130,False,6.619,2348,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 332731577,True,1,A2,motorway_link,130,False,5.184,2349,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 332731577,True,1,A2,motorway_link,130,False,5.587,2350,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-332731577,True,1,A2,motorway_link,130,False,7.408,2351,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,815.0,,815.0
-332731577,True,1,A2,motorway_link,130,False,36.686,2352,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.2105263157894737,1.0,motorway,1,4035.0,4885.0,4035.0,4885.0
-332731577,True,1,A2,motorway_link,130,False,18.208,2353,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,2003.0,,2003.0
+332731577,True,1,A2,motorway_link,130,False,7.408,2351,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,378.0,,378.0
+332731577,True,1,A2,motorway_link,130,False,36.686,2352,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.2105263157894737,1.0,motorway,1,1871.0,2265.0,1871.0,2265.0
+332731577,True,1,A2,motorway_link,130,False,18.208,2353,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,929.0,,929.0
 332731577,True,1,A2,motorway_link,130,False,9.724,2354,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 332731577,True,1,A2,motorway_link,130,False,9.234,2355,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-332731577,True,1,A2,motorway_link,130,False,8.868,2356,39,130,0.0,None,None,None,,,,1.0,1.0,2.0,1.25,1.0,motorway,1,,1219.0,,1219.0
+332731577,True,1,A2,motorway_link,130,False,8.868,2356,39,130,0.0,None,None,None,,,,1.0,1.0,2.0,1.25,1.0,motorway,1,,565.0,,565.0
 332731577,True,1,A2,motorway_link,130,False,9.685,2357,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-332731577,True,1,A2,motorway_link,130,False,8.077,2358,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,motorway,1,888.0,1777.0,888.0,1777.0
+332731577,True,1,A2,motorway_link,130,False,8.077,2358,39,130,0.0,None,None,None,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,motorway,1,412.0,824.0,412.0,824.0
 332731577,True,1,A2,motorway_link,130,False,13.575,2359,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-332731577,True,1,A2,motorway_link,130,False,9.832,2360,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1082.0,,1082.0
+332731577,True,1,A2,motorway_link,130,False,9.832,2360,39,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,501.0,,501.0
 332731577,True,1,A2,motorway_link,130,False,10.843,2361,39,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 947375148,True,2,A2,motorway,100,False,53.442,2362,110,100,0.001,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,2,,6413.0,,6413.0
 436425510,True,3,A2,motorway_link,100,False,10.329,2363,50,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,3,,,,
@@ -2367,11 +2367,11 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777651,True,1,A2,motorway_link,130,False,12.275,2366,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777651,True,1,A2,motorway_link,130,False,12.712,2367,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777651,True,1,A2,motorway_link,130,False,15.429,2368,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-6777651,True,1,A2,motorway_link,130,False,38.489,2369,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,4234.0,,4234.0
+6777651,True,1,A2,motorway_link,130,False,38.489,2369,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1963.0,,1963.0
 6777651,True,1,A2,motorway_link,130,False,59.613,2370,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-6777651,True,1,A2,motorway_link,130,False,28.039,2371,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,3084.0,,3084.0
-6777651,True,1,A2,motorway_link,130,False,21.009,2372,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,2311.0,3852.0,2311.0,3852.0
-6777651,True,1,A2,motorway_link,130,False,11.101,2373,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,1221.0,1221.0,1221.0,1221.0
+6777651,True,1,A2,motorway_link,130,False,28.039,2371,42,130,0.0,None,None,None,,,,1.0,1.0,1.0,1.0,1.0,motorway,1,,1430.0,,1430.0
+6777651,True,1,A2,motorway_link,130,False,21.009,2372,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,2.0,1.6666666666666667,1.0,motorway,1,1071.0,1786.0,1071.0,1786.0
+6777651,True,1,A2,motorway_link,130,False,11.101,2373,42,130,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,566.0,566.0,566.0,566.0
 6777651,True,1,A2,motorway_link,130,False,14.932,2374,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777651,True,1,A2,motorway_link,130,False,15.901,2375,42,130,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 509398743,False,4,None,secondary,50,False,29.15,2376,53,50,0.001,None,Wolfeynde,None,1.0,1.0,1.0,1.0,2.0,4.0,3.5238095238095237,1.0,secondary,4,41.0,144.0,41.0,144.0
@@ -2412,12 +2412,12 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 85694897,True,3,A79,motorway,100,False,33.296,2411,124,100,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,3,4328.0,21642.0,4328.0,21642.0
 85694897,True,3,A79,motorway,100,False,32.627,2412,124,100,0.0,None,None,None,3.0,5.0,3.7916666666666665,1.0,5.0,5.0,5.0,1.0,motorway,3,16082.0,21208.0,16082.0,21208.0
 85694897,True,3,A79,motorway,100,False,28.684,2413,124,100,0.0,None,None,None,,,,1.0,3.0,4.0,3.95,1.0,motorway,3,,14729.0,,14729.0
-1094522126,True,1,A79,motorway_link,100,False,42.639,2414,6,100,0.0,None,None,None,2.0,4.0,3.0,1.0,5.0,5.0,5.0,1.0,motorway,1,14071.0,23451.0,14071.0,23451.0
-6779728,True,1,A79,motorway_link,100,False,20.366,2415,6,100,0.0,None,None,None,1.0,4.0,1.7272727272727273,1.0,1.0,4.0,1.8181818181818181,1.0,motorway,1,3870.0,4073.0,3870.0,4073.0
-6779728,True,1,A79,motorway_link,100,False,18.312,2416,6,100,0.0,None,None,None,1.0,5.0,2.142857142857143,1.0,1.0,5.0,2.9285714285714284,1.0,motorway,1,4316.0,5899.0,4316.0,5899.0
-6779728,True,1,A79,motorway_link,100,False,24.648,2417,6,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,2711.0,2711.0,2711.0,2711.0
-6779728,True,1,A79,motorway_link,100,False,22.313,2418,6,100,0.0,None,None,None,1.0,2.0,1.5,1.0,1.0,2.0,1.5,1.0,motorway,1,3682.0,3682.0,3682.0,3682.0
-6779728,True,1,A79,motorway_link,100,False,14.249,2419,6,100,0.0,None,None,None,4.0,4.0,4.0,1.0,1.0,4.0,3.0,1.0,motorway,1,6270.0,4702.0,6270.0,4702.0
+1094522126,True,1,A79,motorway_link,100,False,42.639,2414,6,100,0.0,None,None,None,2.0,4.0,3.0,1.0,5.0,5.0,5.0,1.0,motorway,1,6524.0,10873.0,6524.0,10873.0
+6779728,True,1,A79,motorway_link,100,False,20.366,2415,6,100,0.0,None,None,None,1.0,4.0,1.7272727272727273,1.0,1.0,4.0,1.8181818181818181,1.0,motorway,1,1794.0,1888.0,1794.0,1888.0
+6779728,True,1,A79,motorway_link,100,False,18.312,2416,6,100,0.0,None,None,None,1.0,5.0,2.142857142857143,1.0,1.0,5.0,2.9285714285714284,1.0,motorway,1,2001.0,2735.0,2001.0,2735.0
+6779728,True,1,A79,motorway_link,100,False,24.648,2417,6,100,0.0,None,None,None,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,motorway,1,1257.0,1257.0,1257.0,1257.0
+6779728,True,1,A79,motorway_link,100,False,22.313,2418,6,100,0.0,None,None,None,1.0,2.0,1.5,1.0,1.0,2.0,1.5,1.0,motorway,1,1707.0,1707.0,1707.0,1707.0
+6779728,True,1,A79,motorway_link,100,False,14.249,2419,6,100,0.0,None,None,None,4.0,4.0,4.0,1.0,1.0,4.0,3.0,1.0,motorway,1,2907.0,2180.0,2907.0,2180.0
 6779729,True,2,A79,motorway,100,False,22.011,2420,10,100,0.0,None,None,None,1.0,2.0,1.25,1.0,2.0,4.0,2.5,1.0,motorway,2,3302.0,6603.0,3302.0,6603.0
 6779084,True,2,A79,motorway,100,False,43.335,2421,9,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
 6779089,True,2,A79,motorway,100,False,21.757,2422,9,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,2,,,,
@@ -2672,8 +2672,8 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 343031086,False,2,None,secondary,50,False,24.217,2671,81,50,0.0,None,Hussenbergstraat,None,2.0,4.0,2.8823529411764706,1.0,4.0,5.0,4.705882352941177,1.0,secondary,2,84.0,137.0,84.0,137.0
 6777581,False,2,None,secondary,50,True,36.836,2672,81,50,0.001,None,Hulserstraat,None,1.0,1.0,1.0,1.0,2.0,5.0,3.576923076923077,1.0,secondary,2,44.0,158.0,44.0,158.0
 6777622,False,2,None,secondary,50,False,63.215,2673,30,50,0.001,None,Hulserstraat,None,,,,1.0,1.0,3.0,1.826086956521739,1.0,secondary,2,,139.0,,139.0
-390464799,True,1,A2,motorway_link,50,False,3.68,2674,32,50,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,405.0,2024.0,405.0,2024.0
-6779607,True,1,A2,motorway_link,50,False,2.992,2675,25,50,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,1646.0,1646.0,1646.0,1646.0
+390464799,True,1,A2,motorway_link,50,False,3.68,2674,32,50,0.0,None,None,None,1.0,1.0,1.0,1.0,5.0,5.0,5.0,1.0,motorway,1,188.0,938.0,188.0,938.0
+6779607,True,1,A2,motorway_link,50,False,2.992,2675,25,50,0.0,None,None,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,motorway,1,763.0,763.0,763.0,763.0
 1095936817,True,1,None,secondary,50,False,2.612,2676,27,50,0.0,None,Bunderstraat,None,4.0,5.0,4.666666666666667,1.0,5.0,5.0,5.0,1.0,secondary,1,13.0,14.0,13.0,14.0
 1095936815,True,1,None,secondary,50,False,2.902,2677,127,50,0.0,None,Maastrichterweg,None,,,,1.0,,,,1.0,secondary,1,,,,
 1012211281,False,2,None,secondary,50,False,10.679,2678,77,50,0.0,None,Stationstraat,None,2.0,3.0,2.5555555555555554,1.0,4.0,4.0,4.0,1.0,secondary,2,33.0,51.0,33.0,51.0
@@ -2686,8 +2686,8 @@ osmid,oneway,lanes,ref,infra_type,maxspeed,reversed,length,rfid_c,rfid,avgspeed,
 6777006,True,1,A2,motorway_link,100,False,26.871,2685,32,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777006,True,1,A2,motorway_link,100,False,24.076,2686,32,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
 6777006,True,1,A2,motorway_link,100,False,36.31,2687,32,100,0.0,None,None,None,,,,1.0,,,,1.0,motorway,1,,,,
-1333271497,True,1,A2,motorway_link,80,False,37.881,2688,32,80,0.0,None,None,None,,,,1.0,1.0,2.0,1.8333333333333333,1.0,motorway,1,,7639.0,,7639.0
-1333271499,True,1,A2,motorway_link,130,False,88.558,2689,25,130,0.001,None,None,None,1.0,5.0,3.75,1.0,1.0,5.0,4.219512195121951,1.0,motorway,1,36530.0,41104.0,36530.0,41104.0
+1333271497,True,1,A2,motorway_link,80,False,37.881,2688,32,80,0.0,None,None,None,,,,1.0,1.0,2.0,1.8333333333333333,1.0,motorway,1,,3542.0,,3542.0
+1333271499,True,1,A2,motorway_link,130,False,88.558,2689,25,130,0.001,None,None,None,1.0,5.0,3.75,1.0,1.0,5.0,4.219512195121951,1.0,motorway,1,16937.0,19057.0,16937.0,19057.0
 1095936800,True,1,None,secondary,50,False,10.172,2690,62,50,0.0,None,Maastrichterweg,None,1.0,4.0,2.375,1.0,3.0,5.0,4.25,1.0,secondary,1,27.0,48.0,27.0,48.0
 1095936799,True,1,None,secondary,50,False,3.265,2691,75,50,0.0,None,Maastrichterweg,None,3.0,3.0,3.0,1.0,4.0,5.0,4.333333333333333,1.0,secondary,1,11.0,16.0,11.0,16.0
 1012211279,False,2,None,secondary,50,False,25.751,2692,86,50,0.001,None,Raadhuisstraat,None,5.0,5.0,5.0,1.0,5.0,5.0,5.0,1.0,secondary,2,155.0,155.0,155.0,155.0
