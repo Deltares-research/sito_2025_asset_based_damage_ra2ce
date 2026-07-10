@@ -44,7 +44,7 @@ class ManualDamageFunctionsReader(FileReaderProtocol):
         Each damage functions is constructed by reading the csv files for the max damage and damage fraction.
 
         Args:
-            file_path (Path): Pathm to the folder containing the manual damage functions folders
+            file_path (Path): Path to the folder containing the manual damage functions folders
 
         Returns:
             ManualDamageFunctions: The manual damage functions

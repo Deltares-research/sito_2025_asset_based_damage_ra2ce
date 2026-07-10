@@ -75,14 +75,8 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         self.reference_base_graph_hazard = base_graph_hazard
 
         self.hazard_prefix = hazard_prefix
-        self._prepare_road_gdf()
-
         if self.analysis.damage_curve == DamageCurveEnum.MAN:
             self.manual_damage_functions = self._load_manual_damage_functions()
-
-        # Asset-based processing that may rely on allowed_asset_types
-        if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSETS:
-            self._rename_highway_by_assets()
 
     def _prepare_road_gdf(self) -> None:
         """
@@ -238,6 +232,11 @@ class Damages(AnalysisBase, AnalysisDamagesProtocol):
         self.road_gdf = df
 
     def execute(self) -> AnalysisResultWrapper:
+        self._prepare_road_gdf()
+
+        if self.analysis.analysis == AnalysisDamagesEnum.DAMAGES_WITH_ASSETS:
+            self._rename_highway_by_assets()
+
         road_gdf = self.road_gdf
         val_cols = self.hazard_columns
 
